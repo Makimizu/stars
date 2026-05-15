@@ -1,0 +1,118 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Parent.master.cs" Inherits="LQ.Parent" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!-- Bootstrap core CSS-->
+    <link href="include/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom fonts for this template-->
+    <link href="include/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
+    <!-- Page level plugin CSS-->
+    <link href="include/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet" />
+    <!-- Custom styles for this template-->
+    <link href="include/css/sb-admin.css" rel="stylesheet" />
+</head>
+<body class="fixed-nav" id="page-top" style="overflow: auto;">
+
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+        <a class="navbar-brand" href="Welcome.aspx">
+            <asp:Image ID="IMG_LOGO" Height="40px" runat="server" />
+        </a>
+        <%--<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>--%>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" id="LI_PERSONALINFO" runat="server">
+                <a class="nav-link" style="color: darkgreen;" href="Frame.aspx?URL=EAAAAODXDlqk60aO8IFbvp4nRUsUfX6fgAxIrdQWDXvNQTvdFSrUUYqKN6fFJP4axcoDBQ==">
+                    <i class="fa fa-fw fa fa-user"></i>Personal Info</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: darkgreen;" href="Welcome.aspx">
+                    <i class="fa fa-fw fa fa-home"></i>Home</a>
+            </li>
+            <%--<li class="nav-item">
+                <a class="nav-link" style="color: darkgreen;" href="ChangePassword.aspx">
+                    <i class="fas fa-key"></i>Security</a>
+            </li>--%>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="color: darkgreen;">
+                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            </li>
+        </ul>
+        <%--<div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right">
+                    <a class="nav-link" style="color: green;">
+                        <span class="nav-link-text">
+                            <asp:Label ID="LB_USER" runat="server" Font-Size="16pt"></asp:Label>
+                        </span>
+                    </a>
+                </li>
+                <asp:Label ID="LB_MENU" runat="server"></asp:Label>
+            </ul>
+            <ul class="navbar-nav sidenav-toggler">
+                <li class="nav-item">
+                    <a class="nav-link text-center" id="sidenavToggler">
+                        <i class="fa fa-fw fa-angle-left"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" style="color: darkgreen;">
+                        <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                </li>
+            </ul>
+        </div>--%>
+    </nav>
+
+    <!-- Page Content -->
+    <div id="DV_CONTAINER_FLUID" runat="server" class="container-fluid" style="padding-top: 30px; padding-left: 30px; padding-right: 30px;">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="logout.aspx">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="include/vendor/jquery/jquery.min.js"></script>
+    <script src="include/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="include/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="include/vendor/chart.js/Chart.min.js"></script>
+    <script src="include/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="include/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="include/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="include/js/sb-admin-datatables.min.js"></script>
+    <script src="include/js/sb-admin-charts.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿body {
+		color:			#FFF;
+		background:		#66C;	/* color page so it can be seen */
+	}
+
+	.ui-layout-north ,
+	.ui-layout-south ,
+	.ui-layout-west ,
+	.ui-layout-east {
+	/*	NOTE: hiding an iframe may cause JS errors if the iframe page autoruns a script, so...
+		onopen: loadIframePage() == loads the *real* iframe page from "longdesc" attribute at 1st open */
+		display:	none;
+		overflow:	hidden;
+	}
+	iframe {
+		padding:	0 !important; /* iframes should not have padding */
+		overflow:	auto !important;
+	}
+
+	/* color panes so they can be seen */
+	.ui-layout-pane {
+		color:			#000;
+		background:		#EEE;
+	}
+	/* masks are usually transparent - make them visible (must 'override' default) */
+	.ui-layout-mask {
+		background:	#C00 !important;
+		opacity:	.20 !important;
+		filter:		alpha(opacity=20) !important;
+	}
+
+	.ui-layout-south {
+		padding:	0;		/* south pane is an iframe-container, so remove padding */
+	}
+	.ui-layout-west {
+		padding:	0;		/* west pane has a scrolling content-div, so remove padding */
+		}
+		.ui-layout-west .ui-layout-content { /* Google IFRAME */
+			border-top:		1px solid #BBB;
+			border-bottom:	1px solid #BBB;
+		}
+		.ui-layout-west .header ,
+		.ui-layout-west .footer ,
+		.ui-layout-west p {
+			background:		#EEE;
+			font-weight:	bold;
+			text-align:		center;
+			padding:		5px 10px;
+		}
+		.ui-layout-west .footer {
+			color:			#FFF;
+			background:		#777;
+		}
+		.ui-layout-west p { /* 2nd Footer: "Toggle South" */
+			background:		#F9F9F9;
+			border:			4px outset #FFF;
+			margin:			7px;
+		}
+	    .ui-layout-toggler
+	    {
+	        background-color: #FF0505;
+	    }
+        .ui-layout-toggler-hover
+	    {
+	        background-color: #2705F7;
+            opacity : 1;
+	    }

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browsers>
+    <browser refID="default">
+        <capabilities>
+            <capability name="supportsAccesskeyAttribute"            value="false" />
+        </capabilities>
+        <!-- Adapter -->
+        <controlAdapters>
+            <adapter controlType="Microsoft.SharePoint.WebControls.ListMenu"
+                     adapterType="Microsoft.SharePoint.WebControls.ListMenuAdapter" />
+            <adapter controlType="Microsoft.SharePoint.WebPartPages.XsltListViewWebPart, Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+                     adapterType="Microsoft.SharePoint.WebPartPages.XsltListViewWebPartMobileAdapter, Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+            <adapter controlType="Microsoft.SharePoint.WebPartPages.ListViewWebPart, Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+                     adapterType="Microsoft.SharePoint.WebPartPages.ListViewWebPartMobileAdapter, Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+            <adapter controlType="Microsoft.SharePoint.Applications.GroupBoard.WebPartPages.WhereaboutsWebPart, Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+                     adapterType="Microsoft.SharePoint.Applications.GroupBoard.WebPartPages.WhereaboutsWebPartMobileAdapter, Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+            <adapter controlType="Microsoft.SharePoint.WebPartPages.ImageWebPart, Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+                     adapterType="Microsoft.SharePoint.WebPartPages.ImageWebPartMobileAdapter, Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+        </controlAdapters>
+    </browser>
+ <!-- Brands -->    
+    <gateway id="HTCIE" parentID="ie">
+        <identification>
+            <userAgent match="HTC" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </gateway>
+    <gateway id="Samsung" parentID="Default">
+        <identification>
+            <userAgent match="SAMSUNG|[Ss]amsung" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </gateway>
+    <gateway id="Nokia" parentID="Default">
+        <identification>
+            <userAgent match="Nokia" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </gateway>
+    <gateway id="NokiaMozilla" parentID="Mozilla">
+        <identification>
+            <userAgent match="Nokia" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </gateway>
+    <!-- bug fix of O15.92139 -->
+    <gateway id="BlackBerry" parentID="Safari">
+        <identification>
+            <userAgent match="BlackBerry" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </gateway>
+<!-- Platforms -->
+    <!-- SymbianOS Safari Browser -->
+    <gateway id="SymbianSafari" parentID="Safari">
+        <identification>
+            <userAgent match="SymbianOS" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </gateway>
+    <!-- Android -->
+    <gateway id="Android" parentID="Default">
+        <identification>
+            <userAgent match="Android" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+            <capability name="Platform"                              value="Android" />
+        </capabilities>
+    </gateway>
+    <!-- Android Safari Browser -->
+    <!-- sample UA "Mozilla/5.0(Linux; U; Android 1.5; zh-tw; HTC Magic Build/CUPCAKE) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1" -->
+    <gateway id="AndroidSafari" parentID="Safari">
+        <identification>
+            <userAgent match="Android" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+            <capability name="Platform"                              value="Android" />
+        </capabilities>
+    </gateway>
+    <!-- O15.3061590 -->
+    <!-- Android Safari Browser for .NET 4.5. This gateway Can be reparent to WebKit if datacenter upgrade to .NET 4.5 -->
+    <!-- sample UA "Mozilla/5.0 (Linux; U; Android 2.3; en-us) AppleWebKit/999+ (KHTML, like Gecko) Safari/999.9" -->
+    <gateway id="AndroidSafariWebKit" parentID="Mozilla">
+        <identification>
+            <userAgent match="AppleWebKit" />
+            <userAgent match="Safari" />
+            <userAgent match="Android" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+            <capability name="Platform"                              value="Android" />
+        </capabilities>
+    </gateway>
+<!-- Browsers -->
+    <!-- Chrome Mobile Browser -->
+    <!-- sample UA "Mozilla/5.0 (Linux; Android 4.0.4; Galaxy Nexus Build/IMM76B)AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.133 MobileSafari/535.19" -->
+    <gateway id="ChromeMobile" parentID="Chrome">
+        <identification>
+            <userAgent match="Mobile" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </gateway>
+    <!-- Dolfin Mobile Browser -->
+    <!-- sample UA "Mozilla/5.0 (SCH-F859/F859DG12;U;NUCLEUS/2.1;Profile/MIDP-2.1 Configuration/CLDC-1.1;480*800;CTC/2.0) Dolfin/2.0" -->
+    <gateway id="DolfinMobile" parentID="Mozilla">
+        <identification>
+            <userAgent match="Dolfin" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </gateway>
+<!-- Microsoft -->
+    <!-- Office Mobile WAC client -->
+    <!-- Case: Windows Mobile 7 phone with Office Mobile 14 client -->
+    <!-- User Agent: Office Mobile Web Access -->
+    <browser id="OfficeMobileClient" parentID="default">
+        <identification>
+            <userAgent match="Office Mobile Web Access" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+            <capability name="overrideMobileDocViewerRedirection"    value="true" />
+        </capabilities>
+    </browser>
+    <!-- Windows Phone -->
+    <browser id="WindowsPhone" parentID="IE6to9">
+        <identification>
+            <userAgent match="Windows Phone"/>
+            <userAgent nonMatch="IEMobile"/>
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+    <!-- Mobile Opera -->
+    <!-- sample UA "Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; *Toshiba/X01T*) Opera 8.65 [ja]" -->
+    <browser id="MobileOpera8to9" parentID="Opera8to9">
+        <identification>
+            <userAgent match="Windows CE" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+<!-- Japan -->
+    <!-- DoCoMo Device -->
+    <gateway id="DoCoMo" parentID="Default">
+        <identification>
+            <userAgent match="DoCoMo|FOMA" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+            <capability name="supportsAccesskeyAttribute"            value="true" />
+        </capabilities>
+    </gateway>
+    <gateway id="FomaMozilla" parentID="Mozilla">
+        <identification>
+            <userAgent match="FOMA" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+            <capability name="supportsAccesskeyAttribute"            value="true" />
+        </capabilities>
+    </gateway>
+    <!-- UP Browser -->
+    <browser id="Up" parentID="Default">
+        <identification>
+            <userAgent match="UP.Browser" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+            <capability name="supportsAccesskeyAttribute"            value="true" />
+        </capabilities>
+    </browser>
+    <!-- SoftBank Device -->
+    <gateway id="SoftBank" parentID="Default">
+        <identification>
+            <userAgent match="SoftBank" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+            <capability name="supportsAccesskeyAttribute"            value="true" />
+        </capabilities>
+    </gateway>
+    <gateway id="SoftBankMozilla" parentID="Mozilla">
+        <identification>
+            <userAgent match="SoftBank" /> 
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+            <capability name="supportsAccesskeyAttribute"            value="true" />
+        </capabilities>
+    </gateway>
+    <browser id="MIB" parentID="Default">
+        <identification>
+            <userAgent match="MIB/" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+    <!-- Japan "au by KDDI" Opera Full Browser -->
+    <!-- sample UA "Mozilla/4.0 (compatible; MSIE 6.0; KDDI-TS3I) Opera 8.60 [ja]" -->
+    <browser id="KDDIOpera" parentID="Opera8to9">
+        <identification>
+            <userAgent match="KDDI" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+    <!-- sample UA "Mozilla/4.0(compatible; MSIE 6.0; KYOCERA/WX331K/2;1.0.1.3.000000/0.1) Opera 7.2EX [ja]" -->
+    <browser id="KYOCERAOpera" parentID="Opera">
+        <identification>
+            <userAgent match="KYOCERA" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+    <!-- sample UA "T-Mobile Dash Mozilla/4.0 (compatible; MSIE 4.01; Windows CE; Smartphone; 320x240)" -->
+    <browser id="IEMobileTMobileDash" parentID="Mozilla">
+        <identification>
+            <userAgent match="T-Mobile Dash" />
+            <userAgent match="Windows CE" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+<!-- KOREA -->   
+    <!-- KOREA KUN browser -->
+    <browser id="Kun" parentID="Mozilla">
+        <identification>
+            <userAgent match="KUN" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+<!-- Special case -->
+    <!-- HTC Touch Diamond (S21HT) -->
+    <!-- sample UA "Opera/9.5 (Microsoft Windows; PPC; Opera Mobi; U; ja) S21HT" -->
+    <browser id="HTCDiamondOpera" parentID="Opera8to9">
+        <identification>
+            <userAgent match="S[0-9]*HT" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+    <!-- WILLCOM WX330J, WX340K, WS018KE -->
+    <!-- WX330J UA "Mozilla/5.0 (MobilePhone; NMCS/3.3; like Gecko/20060901) NetFront/3.4" -->
+    <!-- WX340K UA "Mozilla/5.0 (MobilePhone; NMCS/3.4; like Gecko/20060901;KYOCERA/WX340K/2;1.0.3.11.000000/1) NetFront/3.4" -->
+    <!-- WS018KE UA "Mozilla/5.0 (MobilePhone; NMCS/3.4; like Gecko/20060901) NetFront/3.4" -->
+    <browser id="NetFront" parentID="Mozilla">
+        <identification>
+            <userAgent match="NetFront" />
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+    <!-- NTT Docomo T-01A -->
+    <!-- Windows Mobile 6.1 IE Desktop mode -->
+    <!-- UserAgent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; T-01A) -->
+    <browser id="ie6to9T01A" parentID="IE6to9">
+        <identification>
+            <userAgent match="^Mozilla/4.0 \(compatible; MSIE 6.0; Windows NT 5.1; T-01A\)$"/>
+        </identification>
+        <capabilities>
+            <capability name="isMobileDevice"                        value="true" />
+        </capabilities>
+    </browser>
+</browsers>

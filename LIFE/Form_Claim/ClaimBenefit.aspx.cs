@@ -1,0 +1,465 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using DMS.DBConnection;
+using System.Data;
+
+namespace LIFE.Form_Claim
+{
+    public partial class ClaimBenefit : System.Web.UI.Page
+    {
+        #region PrivateVariables
+        protected Connection conn = new Connection(GlobalUse.GetConnString(System.Configuration.ConfigurationManager.AppSettings["appid"]));
+        protected bool bDone;
+        #endregion
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                LB_REGNO.Text = Request.QueryString["REGNO"].ToString();
+                LB_SEQ.Text = Request.QueryString["SEQ"].ToString();
+
+                Setup();
+                LoadBenefit();
+                ShowRiskBenefit();
+                ShowINVBenefit();
+                LoadCharge();
+                LoadSavingAlert();
+
+                if (bDone || Request.QueryString["readonly"] == "1")
+                {
+                    BT_SAVE.Visible = false;
+                }
+
+                try
+                {
+                    SetMode(Request.QueryString["mode"]);
+                }
+                catch
+                {
+                    SetMode("RISK");
+                }
+            }
+        }
+
+        protected void ShowINVBenefit()
+        {
+            conn.QueryString = "exec SP_APPLICATION_SAVING_TRX_SUMM '" + LB_REGNO.Text + "'";
+            conn.ExecuteQuery();
+            DataTable dt;
+            dt = new DataTable();
+            dt = conn.GetDataTable().Copy();
+            DGR_BENEFIT_INV.DataSource = dt;
+            DGR_BENEFIT_INV.DataBind();
+
+            for (int i = 0; i < DGR_BENEFIT_INV.Items.Count; i++)
+            {
+                if (DGR_BENEFIT_INV.Items[i].Cells[0].Text == "D")
+                {
+                    DGR_BENEFIT_INV.Items[i].ForeColor = System.Drawing.Color.Red;
+                }
+            }
+        }
+
+        protected void Setup()
+        {
+            bDone = TrackDone();
+            conn.QueryString = "select " +
+                                "REGNO " +
+                                "from		APPLICATION_MASTER a " +
+                                "inner join	UWBOX.dbo.V_PARAM_PRODUCT_MASTER b on a.PRODUCT_CODE = b.PRODUCT_CODE and b.PAYDI = 1 " +
+                                "where " +
+                                "a.REGNO = '" + LB_REGNO.Text + "'";
+            conn.ExecuteQuery();
+            if (conn.GetRowCount() == 0)
+                BT_INV.Enabled = false;
+        }
+
+        protected bool TrackDone()
+        {
+            bool result = true;
+            conn.QueryString = "select LAST_TRACK from V_APPLICATION_CLAIM_MASTER where REGNO = '" + LB_REGNO.Text + "' and SEQ = " + LB_SEQ.Text + " and LAST_TRACK in (4,5)";
+            conn.ExecuteQuery();
+
+            if (conn.GetRowCount() == 0)
+                result = false;
+
+            return result;
+        }
+
+        protected void LoadBenefit()
+        {
+            conn.QueryString = "exec SP_APPLICATION_CLAIM_BENEFIT '" + LB_REGNO.Text + "'," + LB_SEQ.Text;
+            conn.ExecuteQuery();
+
+            DataTable dt;
+            dt = new DataTable();
+            dt = conn.GetDataTable().Copy();
+            DGR_BENEFIT.DataSource = dt;
+            DGR_BENEFIT.DataBind();
+
+
+            for (int i = 0; i < DGR_BENEFIT.Items.Count; i++)
+            {
+                TextBox txtAMOUNT = (TextBox)DGR_BENEFIT.Items[i].FindControl("TXT_AMOUNT");
+                txtAMOUNT.Text = DGR_BENEFIT.Items[i].Cells[1].Text;
+
+                if (bDone || Request.QueryString["readonly"] == "1")
+                    txtAMOUNT.ReadOnly = true;
+
+                Button btOPENINFO = (Button)DGR_BENEFIT.Items[i].FindControl("BT_OPEN_INFO");
+                if (DGR_BENEFIT.Items[i].Cells[0].Text == "073-1")
+                    btOPENINFO.Visible = true;
+
+            }
+
+
+            conn.QueryString = "exec SP_APPLICATION_CLAIM_BENEFIT_PAYOR '" + LB_REGNO.Text + "'," + LB_SEQ.Text;
+            conn.ExecuteQuery();
+
+            if (conn.GetRowCount() > 0)
+            {
+                dt = new DataTable();
+                dt = conn.GetDataTable().Copy();
+                DGR_BENEFIT_PAYOR.DataSource = dt;
+                DGR_BENEFIT_PAYOR.DataBind();
+
+                for (int i = 0; i < DGR_BENEFIT_PAYOR.Items.Count; i++)
+                {
+                    CheckBox cb = (CheckBox)DGR_BENEFIT_PAYOR.Items[i].FindControl("CB");
+                    if (DGR_BENEFIT_PAYOR.Items[i].Cells[1].Text == "1")
+                        cb.Checked = true;
+                }
+            }
+        }
+
+        protected void LoadCharge()
+        {
+            conn.QueryString = "exec SP_APPLICATION_CLAIM_CHARGE_COMPONENT '" + LB_REGNO.Text + "'," + LB_SEQ.Text;
+            conn.ExecuteQuery();
+
+            DataTable dt;
+            dt = new DataTable();
+            dt = conn.GetDataTable().Copy();
+            DGR_CHARGE.DataSource = dt;
+            DGR_CHARGE.DataBind();
+
+
+            for (int i = 0; i < DGR_CHARGE.Items.Count; i++)
+            {
+                TextBox txtAMOUNT = (TextBox)DGR_CHARGE.Items[i].FindControl("TXT_CHARGE");
+                txtAMOUNT.Text = DGR_CHARGE.Items[i].Cells[1].Text;
+
+                if (DGR_CHARGE.Items[i].Cells[2].Text == "0")
+                {
+                    txtAMOUNT.BackColor = System.Drawing.Color.Pink;
+                }
+
+                if (bDone || Request.QueryString["readonly"] == "1")
+                    txtAMOUNT.ReadOnly = true;
+
+                if (DGR_CHARGE.Items[i].Cells[3].Text == "1")
+                    txtAMOUNT.ReadOnly = true;
+            }
+        }
+
+
+        protected void DGR_CHARGE_ItemDataBound(object sender, DataGridItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Footer)
+            {
+                e.Item.Cells[4].Text = "TOTAL APPROVED";
+
+                conn.QueryString = "exec SP_APPLICATION_CLAIM_CHARGE_COMPONENT_TOTAL '" + LB_REGNO.Text + "'," + LB_SEQ.Text;
+                conn.ExecuteQuery();
+                e.Item.Cells[5].Text = conn.GetFieldValue("TOTAL").ToString();
+            }
+        }
+
+        protected void BT_SAVE_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < DGR_BENEFIT.Items.Count; i++)
+            {
+                TextBox txtAMOUNT = (TextBox)DGR_BENEFIT.Items[i].FindControl("TXT_AMOUNT");
+
+                try
+                {
+                    conn.QueryString = "exec SP_APPLICATION_CLAIM_BENEFIT_UPSERT " +
+                                        "'" + LB_REGNO.Text + "'," +
+                                        "'" + LB_SEQ.Text + "'," +
+                                        "'" + DGR_BENEFIT.Items[i].Cells[0].Text + "'," +
+                                        "'" + DGR_BENEFIT.Items[i].Cells[2].Text + "'," +
+                                        "'" + txtAMOUNT.Text.Trim().Replace(",", "") + "'," +
+                                        "'" + DGR_BENEFIT.Items[i].Cells[5].Text.Trim().Replace(",", "") + "'," +
+                                        "'" + GlobalUse.GetUserMgmt(Session["s"].ToString(), "UserID") + "'";
+                    conn.ExecuteNonQuery();
+                }
+                catch { }
+            }
+
+            for (int i = 0; i < DGR_BENEFIT_PAYOR.Items.Count; i++)
+            {
+                CheckBox cb = (CheckBox)DGR_BENEFIT_PAYOR.Items[i].FindControl("CB");
+                string taken = "0";
+                if (cb.Checked)
+                    taken = "1";
+
+                try
+                {
+                    conn.QueryString = "exec SP_APPLICATION_CLAIM_BENEFIT_PAYOR_UPSERT " +
+                                        "'" + LB_REGNO.Text + "'," +
+                                        "'" + LB_SEQ.Text + "'," +
+                                        "'" + DGR_BENEFIT_PAYOR.Items[i].Cells[0].Text + "'," +
+                                        "'" + DGR_BENEFIT_PAYOR.Items[i].Cells[2].Text + "'," +
+                                        taken + "," +
+                                        "'" + GlobalUse.GetUserMgmt(Session["s"].ToString(), "UserID") + "'";
+                    conn.ExecuteNonQuery();
+                }
+                catch { }
+            }
+
+            for (int i = 0; i < DGR_CHARGE.Items.Count; i++)
+            {
+                TextBox txtAMOUNT = (TextBox)DGR_CHARGE.Items[i].FindControl("TXT_CHARGE");
+
+                try
+                {
+                    conn.QueryString = "exec SP_APPLICATION_CLAIM_CHARGE_COMPONENT_UPSERT " +
+                                        "'" + LB_REGNO.Text + "'," +
+                                        "'" + LB_SEQ.Text + "'," +
+                                        "'" + DGR_CHARGE.Items[i].Cells[0].Text + "'," +
+                                        "'" + txtAMOUNT.Text.Trim().Replace(",", "") + "'," +
+                                        "'" + GlobalUse.GetUserMgmt(Session["s"].ToString(), "UserID") + "'";
+                    conn.ExecuteNonQuery();
+                }
+                catch { }
+            }
+
+            try
+            {
+                conn.QueryString = "exec SP_APPLICATION_CLAIM_SHARE_INSERT " +
+                                    "'" + LB_REGNO.Text + "'," +
+                                    "'" + LB_SEQ.Text + "'," +
+                                    "'" + GlobalUse.GetUserMgmt(Session["s"].ToString(), "UserID") + "'";
+                conn.ExecuteNonQuery();
+            }
+            catch { }
+
+            LoadBenefit();
+            LoadCharge();
+            ShowBeneficiary("RISK");
+        }
+
+        protected void LoadSavingAlert()
+        {
+            try
+            {
+                conn.QueryString = "exec SP_APPLICATION_CLAIM_MASTER_SAVING_ALERT '" + LB_REGNO.Text + "'";
+                conn.ExecuteQuery();
+                LB_SAVING_ALERT.Text = conn.GetFieldValue(0, 0).ToString();
+            }
+            catch { }
+        }
+
+        protected void ShowRiskBenefit()
+        {
+            SetMode("RISK");
+        }
+
+        protected void BT_RISK_Click(object sender, EventArgs e)
+        {
+            ShowRiskBenefit();
+        }
+
+        protected void BT_INV_Click(object sender, EventArgs e)
+        {
+            SetMode("INV");
+        }
+
+        protected void SetMode(string mode)
+        {
+            if (mode == "RISK")
+            {
+                LB_TITLE.Text = BT_RISK.Text;
+                TR_RISK.Visible = true;
+                TR_INV.Visible = false;
+                ShowBeneficiary("RISK");
+            }
+            else
+            {
+                LB_TITLE.Text = BT_INV.Text;
+                TR_RISK.Visible = false;
+                TR_INV.Visible = true;
+                ShowBeneficiary("INV");
+            }
+        }
+
+        protected void ShowBeneficiary(string mode)
+        {
+            //conn.QueryString = "exec SP_APPLICATION_PAYABLE " +
+            //                    "'" + LB_REGNO.Text + "'," +
+            //                    LB_SEQ.Text + "," +
+            //                    "'" + mode + "'";
+            //conn.ExecuteQuery();
+            //DataTable dt;
+            //dt = new DataTable();
+            //dt = conn.GetDataTable().Copy();
+            //DGR_BENEFICIARY.DataSource = dt;
+            //DGR_BENEFICIARY.DataBind();
+
+            //if (DGR_BENEFICIARY.Items.Count > 1)
+            //{
+            //    DGR_BENEFICIARY.Items[DGR_BENEFICIARY.Items.Count - 1].Font.Bold = true;
+            //    DGR_BENEFICIARY.Items[DGR_BENEFICIARY.Items.Count - 1].BackColor = System.Drawing.Color.Gainsboro;
+            //}
+
+            bDone = TrackDone();
+            conn.QueryString = "exec SP_APPLICATION_CLAIM_PAYABLE " +
+                                "'" + LB_REGNO.Text + "'," +
+                                LB_SEQ.Text + "," +
+                                "'" + mode + "'";
+            conn.ExecuteQuery();
+            DataTable dt;
+            dt = new DataTable();
+            dt = conn.GetDataTable().Copy();
+            DGR_PAYABLE.DataSource = dt;
+            DGR_PAYABLE.DataBind();
+
+            for (int i = 0; i < DGR_PAYABLE.Items.Count; i++)
+            {
+                Button bt = (Button)DGR_PAYABLE.Items[i].FindControl("BT_SET");
+                if (DGR_PAYABLE.Items[i].Cells[2].Text.Replace("&nbsp;", "").Trim() != "")
+                {
+                    bt.Visible = true;
+                }
+
+                if (bDone)
+                {
+                    bt.Visible = false;
+                }
+
+                if (DGR_PAYABLE.Items[i].Cells[0].Text == "ZZZ")
+                {
+                    DGR_PAYABLE.Items[i].BackColor = System.Drawing.Color.Gainsboro;
+                }
+
+                if (DGR_PAYABLE.Items[i].Cells[1].Text == "D")
+                {
+                    DGR_PAYABLE.Items[i].ForeColor = System.Drawing.Color.Red;
+                }
+            }
+        }
+
+        protected void DGR_PAYABLE_ItemCommand(object source, DataGridCommandEventArgs e)
+        {
+            if (e.CommandName == "Set")
+            {
+                if (e.Item.Cells[2].Text.Substring(0, 4) != "exec")
+                {
+                    ClientScript.RegisterStartupScript(GetType(), "", "<script language='javascript'>parent.claimbenefitbody.location.href = '" + e.Item.Cells[2].Text + "';</script>");
+                }
+                else
+                {
+                    conn.QueryString = e.Item.Cells[2].Text;
+                    conn.ExecuteNonQuery();
+                    if (TR_RISK.Visible)
+                        ShowBeneficiary("RISK");
+                    else
+                        ShowBeneficiary("INV");
+                }
+            }
+        }
+
+        protected void DGR_BENEFIT_ItemCommand(object source, DataGridCommandEventArgs e)
+        {
+            if (e.CommandName == "OpenInfo")
+            {
+                if (e.Item.Cells[0].Text == "073-1")
+                {
+                    LB_BENEFIT_CODE.Text = e.Item.Cells[0].Text;
+                    LB_INSURED_MEMBER_ID.Text = e.Item.Cells[2].Text;
+                    TXT_CALCULATED_AMT.Text = e.Item.Cells[6].Text.Trim().Replace(",", "");
+
+                    conn.QueryString = "SELECT " +
+                                    "INCURRED_START_DATE = CONVERT(VARCHAR(20), INCURRED_START_DATE, 106), " +
+                                    "INCURRED_END_DATE = CONVERT(VARCHAR(20), INCURRED_END_DATE, 106), " +
+                                    "INCURRED_TOTAL_DAY " +
+                                    "FROM APPLICATION_CLAIM_BENEFIT_INCURRED_INFO " +
+                                    "WHERE REGNO = '" + LB_REGNO.Text + "' " +
+                                    "AND SEQ = '" + LB_SEQ.Text + "' " +
+                                    "AND BENEFIT_CODE = '" + e.Item.Cells[0].Text + "' " +
+                                    "AND INSURED_MEMBER_ID = '"+ e.Item.Cells[2].Text + "'";
+                    conn.ExecuteQuery();
+
+                    if (conn.GetRowCount() > 0)
+                    {
+                        TXT_INCDATE1.Text = conn.GetFieldValue("INCURRED_START_DATE").ToString();
+                        TXT_INCDATE2.Text = conn.GetFieldValue("INCURRED_END_DATE").ToString();
+                        TXT_TOTAL_DAY.Text = conn.GetFieldValue("INCURRED_TOTAL_DAY").ToString();
+                    }
+                    
+                    ClientScript.RegisterStartupScript(this.GetType(), "focus", "document.getElementById('FlagPopup').style.display = 'block';", true);
+                }
+            }
+        }
+
+        protected void BT_INC_Click(object sender, EventArgs e)
+        {
+            string IncDate1 = GlobalUse.GlobalDateFormat(TXT_INCDATE1.Text.Trim(), "d/M/yyyy");
+            string IncDate2 = GlobalUse.GlobalDateFormat(TXT_INCDATE2.Text.Trim(), "d/M/yyyy");
+            string TotalDay = TXT_TOTAL_DAY.Text;
+            float CalculatedAmount = 0;
+            float IncurredAmount = 0;
+
+            if (float.Parse(TotalDay) > 0)
+            {
+                CalculatedAmount = float.Parse(TXT_CALCULATED_AMT.Text); ;
+                IncurredAmount = float.Parse(TotalDay) * CalculatedAmount;
+            }
+
+            try
+            {
+                conn.QueryString = "exec SP_APPLICATION_CLAIM_BENEFIT_INCURRED_INFO_UPSERT " +
+                                    "'" + LB_REGNO.Text + "'," +
+                                    "'" + LB_SEQ.Text + "'," +
+                                    "'" + LB_BENEFIT_CODE.Text + "'," +
+                                    "'" + LB_INSURED_MEMBER_ID.Text + "'," +
+                                    "'" + IncDate1 + "'," +
+                                    "'" + IncDate2 + "'," +
+                                    "'" + TotalDay + "'," +
+                                    "'" + GlobalUse.GetUserMgmt(Session["s"].ToString(), "UserID") + "'";
+                conn.ExecuteNonQuery();
+
+
+                //conn.QueryString = "UPDATE APPLICATION_CLAIM_BENEFIT " +
+                //                    "SET INCURRED_AMOUNT = "+ IncurredAmount + " " +
+                //                    "WHERE REGNO = '" + LB_REGNO.Text + "' " +
+                //                    "AND SEQ = '" + LB_SEQ.Text + "' " +
+                //                    "AND BENEFIT_CODE = '" + LB_BENEFIT_CODE.Text + "' " +
+                //                    "AND INSURED_MEMBER_ID = '" + LB_INSURED_MEMBER_ID.Text + "'";
+                //conn.ExecuteNonQuery();
+
+                //LoadBenefit();
+
+                for (int i = 0; i < DGR_BENEFIT.Items.Count; i++)
+                {
+                    TextBox txtAMOUNT = (TextBox)DGR_BENEFIT.Items[i].FindControl("TXT_AMOUNT");
+                    txtAMOUNT.Text = DGR_BENEFIT.Items[i].Cells[1].Text;
+
+
+                    if (DGR_BENEFIT.Items[i].Cells[0].Text == "073-1")
+                        txtAMOUNT.Text = IncurredAmount.ToString("N0");
+
+                }
+
+            }
+            catch { }
+        }
+
+       
+    }
+}

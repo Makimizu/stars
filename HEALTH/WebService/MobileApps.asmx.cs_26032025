@@ -1,0 +1,92 @@
+﻿using DMS.DBConnection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+using System.IO;
+using System.Net;
+using System.Data.SqlClient;
+
+namespace HEALTH.WebService
+{
+    /// <summary>
+    /// Summary description for MobileApps
+    /// </summary>
+    [WebService(Namespace = "http://tempuri.org/")]
+    [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+    [System.ComponentModel.ToolboxItem(false)]
+    [System.Web.Script.Services.ScriptService]
+    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+    // [System.Web.Script.Services.ScriptService]
+    public class MobileApps : System.Web.Services.WebService
+    {
+        #region PrivateVariables
+        protected Connection conn = new Connection(GlobalUse.GetConnString(System.Configuration.ConfigurationManager.AppSettings["appid"]));
+        #endregion
+
+        [WebMethod]
+        public void UploadClaim(string fileName, string docNo, string remark)
+        {
+            string json = "";
+            string dir = "C:\\FTP\\MOBILE\\UPLOAD\\REIMBURSE\\" + fileName;
+            try
+            {
+                //download local stars
+                WebClient webClient = new WebClient();
+                webClient.DownloadFile("https://api.takaful.com/mobile/document/" + fileName, dir);
+
+                //filetoSQL
+                conn.QueryString = "select convert(varchar(30),GETDATE(),112) + replace(convert(varchar(30),GETDATE(),114),':','')";
+                conn.ExecuteQuery();
+
+                string code = conn.GetFieldValue(0, 0).ToString();
+
+                string SQL = "insert into ARCHIEVE.dbo.HO_ARSIP values (" +
+                                    "'" + code + "'," +
+                                    "'HO_CLMNO'," +
+                                    "'" + docNo + "'," +
+                                    "''," +
+                                    "''," +
+                                    "'" + remark + "'," +
+                                    "'" + fileName + "'," +
+                                    "'mobile',GetDate()," +
+                                    "'mobile',GetDate()," +
+                                    "@File)";
+
+                GlobalUse.FileToSQL(dir, SQL);
+
+                if (File.Exists(dir))
+                    File.Delete(dir);
+
+                if (remark == "RINCIAN BIAYA")
+                {
+                    conn.QueryString = "exec SP_MOBILE_CLAIM_REIMBURSE_PROSES " +
+                                                    "'" + docNo + "'";
+                    conn.ExecuteQuery();
+                }
+
+                json = "{" +
+                    "\"stat\":\"0\"," +
+                    "\"errMsg\":\"Success\"" +
+                    "}";
+            }
+            catch (Exception ex)
+            {
+                json = "{" +
+                        "\"stat\":\"1\"," +
+                        "\"errMsg\":\"" + ex.Message + "\"" +
+                        "}";
+            }
+
+
+
+            Context.Response.Clear();
+            Context.Response.ContentType = "application/json";
+            Context.Response.AddHeader("content-length", json.Length.ToString());
+            Context.Response.Flush();
+            Context.Response.Write(json);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+    }
+}

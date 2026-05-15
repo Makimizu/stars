@@ -1,0 +1,106 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ProductTC.aspx.cs" Inherits="HLP.Form_Parameter.ProductTC" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <link href="../Standard/CommonStyle.css" rel="stylesheet" />
+    <style type="text/css">
+        .auto-style1 {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table style="position: absolute; left: 0px; top: 0px; border-spacing: 0px;">
+            <tr>
+                <td>
+                    <table style="border-spacing: 0px;">
+                        <tr>
+                            <td style="width: 100px;">BENEFIT</td>
+                            <td>
+                                <asp:DropDownList ID="DDL_BENEFIT" runat="server" AutoPostBack="True" CssClass="ASPDropDownList" OnSelectedIndexChanged="DDL_BENEFIT_SelectedIndexChanged">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width:20px;">
+                    &nbsp;</td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            <tr style="vertical-align:top;">
+                <td>
+                    <span class="auto-style1"><strong>TC PARAMETER :</strong></span><asp:Label ID="LB_CODE" runat="server" Visible="False"></asp:Label>
+
+                        <asp:DataGrid ID="DGR" runat="server" BackColor="White"
+                            BorderColor="#000099" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                            CellSpacing="1"  Font-Size="X-Small" GridLines="Vertical"
+                            PageSize="20" AutoGenerateColumns="False" OnItemCommand="DGR_ItemCommand">
+                            <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                            <AlternatingItemStyle BackColor="#F7F7F7" />
+                            <ItemStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" Wrap="False" VerticalAlign="Top" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
+                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                            <Columns>
+                                <asp:BoundColumn DataField="CODE" HeaderText="KODE"></asp:BoundColumn>
+                                <asp:BoundColumn DataField="DESCR" HeaderText="TERM & CONDITION"></asp:BoundColumn>
+                                <asp:BoundColumn DataField="TAKEN" Visible="False"></asp:BoundColumn>
+                                <asp:TemplateColumn>
+                                    <HeaderTemplate>
+                                        <asp:Button ID="BT_SAVE" runat="server" CommandName="Save" CssClass="ASPButton" Text="SAVE" />
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <asp:CheckBox ID="CB" runat="server" CssClass="ASPButton" />
+                                    </ItemTemplate>
+                                    <HeaderStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" />
+                                    <ItemStyle Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Center" />
+                                </asp:TemplateColumn>
+                            </Columns>
+                            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                            <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right"
+                                Mode="NumericPages" />
+                        </asp:DataGrid>
+                </td>
+                <td>
+                    &nbsp;</td>
+                <td>
+
+                        <span class="auto-style1"><strong>TC NOTES :</strong></span><asp:DataGrid ID="DGR2" runat="server" BackColor="White"
+                            BorderColor="#000099" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                            CellSpacing="1"  Font-Size="X-Small" GridLines="Vertical"
+                            PageSize="20" AutoGenerateColumns="False" OnItemCommand="DGR2_ItemCommand">
+                            <SelectedItemStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                            <AlternatingItemStyle BackColor="#F7F7F7" />
+                            <ItemStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" Wrap="False" VerticalAlign="Top" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
+                            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                            <Columns>
+                                <asp:BoundColumn DataField="SEQ" HeaderText="NO"></asp:BoundColumn>
+                                <asp:BoundColumn DataField="NOTE" Visible="False"></asp:BoundColumn>
+                                <asp:TemplateColumn>
+                                    <HeaderTemplate>
+                                        <asp:Button ID="BT_SAVE" runat="server" CommandName="Save" CssClass="ASPButton" Text="SAVE NOTE" />
+                                        <asp:Button ID="BT_NEW" runat="server" CommandName="New" CssClass="ASPButton" Text="NEW NOTE" Font-Bold="True" ForeColor="Blue" />
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <asp:TextBox ID="TXT_NOTE" runat="server" CssClass="ASPTextBox" Height="40px" TextMode="MultiLine" Width="500px"></asp:TextBox>
+                                    </ItemTemplate>
+                                </asp:TemplateColumn>
+                                <asp:TemplateColumn>
+                                    <ItemTemplate>
+                                        <asp:Button ID="BT_DEL" runat="server" CommandName="Delete" CssClass="ASPButton" Font-Bold="True" ForeColor="Red" Text="DELETE" />
+                                    </ItemTemplate>
+                                </asp:TemplateColumn>
+                            </Columns>
+                            <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                            <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right"
+                                Mode="NumericPages" />
+                        </asp:DataGrid>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,228 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using DMS.DBConnection;
+
+namespace HEALTH.Form_Klaim
+{
+    public partial class ClaimPending : System.Web.UI.Page
+    {
+        #region PrivateVariables
+        protected Connection conn = new Connection(GlobalUse.GetConnString(System.Configuration.ConfigurationManager.AppSettings["appid"]));
+        #endregion
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                LB_TRACK.Text = Request.QueryString["track"];
+                Setup();
+            }
+        }
+
+        protected void Setup()
+        {
+            conn.QueryString = "select CODE,DESCR from PR_BENEFIT_PROVIDER_TYPE";
+            conn.ExecuteQuery();
+            DDL_PR.Items.Add(new ListItem("", ""));
+            for (int i = 0; i < conn.GetRowCount(); i++)
+                DDL_PR.Items.Add(new ListItem(conn.GetFieldValue(i, 1).ToString(), conn.GetFieldValue(i, 0).ToString()));
+
+
+            conn.QueryString = "select CODE,DESCR from PR_TIPE_CLAIM";
+            conn.ExecuteQuery();
+            DDL_TIPE.Items.Add(new ListItem("", ""));
+            for (int i = 0; i < conn.GetRowCount(); i++)
+                DDL_TIPE.Items.Add(new ListItem(conn.GetFieldValue(i, 1).ToString(), conn.GetFieldValue(i, 0).ToString()));
+
+            conn.QueryString = "select " +
+                                "b.SEQ, b.DESCR  " +
+                                "from PARAM_TRACK_NEXT a " +
+                                "inner join PARAM_TRACK b on a.TIPE_CODE=b.TIPE_CODE and a.NEXT_SEQ=b.SEQ " +
+                                "where a.TIPE_CODE='CLMMASTER' and a.SEQ='" + LB_TRACK.Text + "' " +
+                                "order by b.SEQ desc";
+            conn.ExecuteQuery();
+            for (int i = 0; i < conn.GetRowCount(); i++)
+                DDL_NEXTTRACK.Items.Add(new ListItem(conn.GetFieldValue(i, 1).ToString(), conn.GetFieldValue(i, 0).ToString()));
+
+            conn.QueryString = "select CODE,DESCR from PR_CLAIM_DOC_SOURCE order by CODE";
+            conn.ExecuteQuery();
+            DDL_DOC_SOURCE.Items.Add(new ListItem("", ""));
+            for (int i = 0; i < conn.GetRowCount(); i++)
+                DDL_DOC_SOURCE.Items.Add(new ListItem(conn.GetFieldValue(i, 1).ToString(), conn.GetFieldValue(i, 0).ToString()));
+
+            BT_PROSES.Attributes.Add("onclick", "if(!confirm('Anda yakin untuk SUBMIT ?')){return false;};");
+            SetButtonPROSES();
+        }
+
+        protected void FillDGR()
+        {
+            LB_RESULT.Text = "";
+            string where = "";
+            string date1 = "1 jan 1980";
+            string date2 = "31 dec 2090";
+            string done = "";
+            string view = "";
+            string datarekening = "(ISNULL(ACC_NO,'')<>'' and ISNULL(ACC_NAMA,'')<>'' and ISNULL(ACC_BANK,'')<>'')";
+
+            if (TXT_CLAIMNO.Text.Trim() != "")
+                where = where + " and CLAIM_NO = '" + TXT_CLAIMNO.Text.Trim() + "' ";
+
+            if (TXT_NAMA.Text.Trim() != "")
+                where = where + " and NAMA like '%" + TXT_NAMA.Text.Trim() + "%' ";
+
+            if (DDL_DOC_SOURCE.SelectedValue != "")
+                where = where + " and DOC_SOURCE like '%" + DDL_DOC_SOURCE.SelectedValue + "%' ";
+
+            if (TXT_SM.Text.Trim() != "")
+                where = where + " and DOC_NO like '%" + TXT_SM.Text.Trim() + "%' ";
+
+            if (TXT_COMPANY.Text.Trim() != "")
+                where = where + " and COMPANY_NAME like '%" + TXT_COMPANY.Text.Trim() + "%' ";
+
+            if (DDL_PR.SelectedValue != "")
+                where = where + " and PR='" + DDL_PR.SelectedValue + "' ";
+
+            if (DDL_TIPE.SelectedValue != "")
+                where = where + " and TIPE_CLAIM='" + DDL_TIPE.SelectedValue + "' ";
+
+            if (TXT_DATE.Text.Trim() != "" || TXT_DATE2.Text.Trim() != "")
+            {
+                if (TXT_DATE.Text.Trim() != "")
+                    date1 = GlobalUse.GlobalDateFormat(TXT_DATE.Text.Trim(), "d/M/yyyy");
+                if (TXT_DATE2.Text.Trim() != "")
+                    date2 = GlobalUse.GlobalDateFormat(TXT_DATE2.Text.Trim(), "d/M/yyyy");
+
+                where = where + " and (a.TGL_KLAIM between '" + date1 + "' and '" + date2 + "') ";
+            }
+
+            if (DDL_REK.SelectedValue == "0")
+            {
+                where = where + " and ((ISNULL(ACC_NO,'')='' or ISNULL(ACC_NAMA,'')='' or ISNULL(ACC_BANK,'')='')) ";
+            }
+            else
+            {
+                where = where + " and ((ISNULL(ACC_NO,'')<>'' and ISNULL(ACC_NAMA,'')<>'' and ISNULL(ACC_BANK,'')<>'')) ";
+            }
+
+            switch (LB_TRACK.Text)
+            {
+                case "1": view = "V_CLM_CLAIM_MASTER_PENDING_VERIFY"; break;
+                case "2": view = "V_CLM_CLAIM_MASTER_PENDING_APPROVAL"; break;
+            }
+            conn.QueryString = "select " +
+                                "CLAIM_NO, " +
+                                "DOC_NO, " +
+                                "NAMA, " +
+                                "COMPANY_NAME, " +
+                                "PR_DESCR, " +
+                                "TIPE_CLAIM_DESCR, " +
+                                "TGL_KLAIM = CONVERT(varchar(20),TGL_KLAIM,106), " +
+                                "AMOUNT_PENGAJUAN = replace(CONVERT(varchar(100),CONVERT(money,AMOUNT_PENGAJUAN),1),'.00',''), " +
+                                "AMOUNT_CASH = replace(CONVERT(varchar(100),CONVERT(money,AMOUNT_CASH),1),'.00',''), " +
+                                "AMOUNT_BAYAR = replace(CONVERT(varchar(100),CONVERT(money,AMOUNT_BAYAR),1),'.00',''), " +
+                                "JUMLAH_TOLAK = replace(CONVERT(varchar(100),CONVERT(money,JUMLAH_TOLAK),1),'.00',''), " +
+                                "EKSES = replace(CONVERT(varchar(100),CONVERT(money,EKSES),1),'.00',''), " +
+                                "REFUND = replace(CONVERT(varchar(100),CONVERT(money,REFUND),1),'.00',''), " +
+                                "DONE " +
+                                "from " + view + " a " +
+                                "where 1=1 " + where +
+                                "order by  " +
+                                "a.TGL_KLAIM desc, " +
+                                "a.COMPANY_NAME, " +
+                                "a.NAMA";
+            conn.ExecuteQuery();
+
+            LB_CNT.Text = "Total : " + conn.GetRowCount().ToString() + " Records";
+
+            DataTable dt;
+            dt = new DataTable();
+            dt = conn.GetDataTable().Copy();
+            DGR.DataSource = dt;
+            DGR.DataBind();
+
+            conn.QueryString = "select URL from V_LINK_SC_REPORT_LIST where CODE='200'";
+            conn.ExecuteQuery();
+            string URL = conn.GetFieldValue("URL").ToString();
+
+            conn.QueryString = "select URL from V_LINK_SC_REPORT_LIST where CODE='277'";
+            conn.ExecuteQuery();
+            string URL_SM = conn.GetFieldValue("URL").ToString();
+
+            for (int i = 0; i < DGR.Items.Count; i++)
+            {
+                CheckBox cb = (CheckBox)DGR.Items[i].FindControl("CB");
+                Label lbClaimNo = (Label)DGR.Items[i].FindControl("LB_CLAIMNO");
+                Label lbDocNo = (Label)DGR.Items[i].FindControl("LB_DOC_NO");
+
+                if (DGR.Items[i].Cells[16].Text == "1")
+                {
+                    cb.Visible = true;
+                    DGR.Items[i].Cells[5].ForeColor = System.Drawing.Color.Green;
+                    DGR.Items[i].Cells[5].Font.Bold = true;
+                    DGR.Items[i].Cells[6].ForeColor = System.Drawing.Color.Green;
+                    DGR.Items[i].Cells[6].Font.Bold = true;
+                }
+                //lbClaimNo.Text = "<a href='" +URL+ "&rc:Parameters=False&CLAIM_NO=" +DGR.Items[i].Cells[1].Text+ "'  target='Claim'><span style='color: Blue'>" +DGR.Items[i].Cells[1].Text+ "</span></a>";
+                lbDocNo.Text = "<a href='" + URL_SM + "&rc:Parameters=False&DOC_NO=" + DGR.Items[i].Cells[2].Text + "'  target='Claim'><span style='color: Blue'>" + DGR.Items[i].Cells[2].Text + "</span></a>";
+                lbClaimNo.Text = "<a href='ClaimHeader.aspx?CLAIM_NO=" + DGR.Items[i].Cells[1].Text + "'  target='Claim'><span style='color: Blue'>" + DGR.Items[i].Cells[1].Text + "</span></a>";
+            }
+        }
+
+        protected void BT_CARI_Click(object sender, EventArgs e)
+        {
+            DGR.CurrentPageIndex = 0;
+            FillDGR();
+        }
+
+        protected void DGR_PageIndexChanged(object source, DataGridPageChangedEventArgs e)
+        {
+            DGR.CurrentPageIndex = e.NewPageIndex;
+            FillDGR();
+        }
+
+        protected void BT_PROSES_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < DGR.Items.Count; i++)
+            {
+                CheckBox cb = (CheckBox)DGR.Items[i].FindControl("CB");
+                if (cb.Checked && cb.Visible == true)
+                {
+                    try
+                    {
+                        conn.QueryString = "exec SP_CLM_CLAIM_MASTER_NEXTTRACK " +
+                                            "'" + DGR.Items[i].Cells[1].Text + "'," +
+                                            "'" + DDL_NEXTTRACK.SelectedValue + "'," +
+                                            "'" + GlobalUse.GetUserMgmt(Session["s"].ToString(), "UserID") + "'";
+                        conn.ExecuteNonQuery();
+                    }
+                    catch { }
+                }
+            }
+
+            DGR.CurrentPageIndex = 0;
+            FillDGR();
+        }
+
+        protected void DGR_ItemCommand(object source, DataGridCommandEventArgs e)
+        {
+            if (e.CommandName == "All")
+            {
+                for (int i = 0; i < DGR.Items.Count; i++)
+                {
+                    CheckBox cb = (CheckBox)DGR.Items[i].FindControl("CB");
+                    cb.Checked = true;
+                }
+            }
+        }
+
+        protected void SetButtonPROSES()
+        {
+            BT_PROSES.Text = DDL_NEXTTRACK.SelectedItem.Text;
+        }
+    }
+}

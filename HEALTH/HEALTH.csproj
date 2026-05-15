@@ -1,0 +1,1792 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{86160DBC-1752-4173-B038-9B29316F34E7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HEALTH</RootNamespace>
+    <AssemblyName>HEALTH</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DMS.CuBESCore, Version=1.0.1895.34592, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DMS.CuBESCore.dll</HintPath>
+    </Reference>
+    <Reference Include="DMS.DBConnection, Version=1.0.1895.34592, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DMS.DBConnection.dll</HintPath>
+    </Reference>
+    <!-- Masukin package Manual -->
+    <Reference Include="EPPlus, Version=4.5.1.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.5.1\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=7.7.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.7.7.0\lib\net35\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=7.7.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.7.7.0\lib\net35\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.html2pdf, Version=3.0.4.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.pdfhtml.3.0.4\lib\net45\itext.html2pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <!-- End : Masukin package Manual -->
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="Spire.Doc, Version=12.2.0.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Doc.12.2.0\lib\net40\Spire.Doc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.7.1\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery.UI.Combined">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.8.20\lib\net45\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.4.5.6\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms, Version=4.5.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.4.5.6\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OAuth.Consumer.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.Core.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.0.3.12153\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.0.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetOpenAuth.AspNet.4.0.3.12153\lib\net40-full\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Membership.OpenAuth, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Membership.OpenAuth.1.0.0\lib\net45\Microsoft.AspNet.Membership.OpenAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.0.0\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="bin\AjaxControlToolkit.dll" />
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.dll" />
+    <Content Include="bin\AspNet.ScriptManager.jQuery.UI.Combined.dll" />
+    <Content Include="bin\DMS.CuBESCore.dll" />
+    <Content Include="bin\DMS.DBConnection.dll" />
+    <Content Include="bin\DotNetOpenAuth.AspNet.dll" />
+    <Content Include="bin\DotNetOpenAuth.Core.dll" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.Consumer.dll" />
+    <Content Include="bin\DotNetOpenAuth.OAuth.dll" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.dll" />
+    <Content Include="bin\DotNetOpenAuth.OpenId.RelyingParty.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\HEALTH.XmlSerializers.dll" />
+    <Content Include="bin\Microsoft.AspNet.Membership.OpenAuth.dll" />
+    <Content Include="bin\Microsoft.AspNet.Web.Optimization.WebForms.dll" />
+    <Content Include="bin\Microsoft.ScriptManager.MSAjax.dll" />
+    <Content Include="bin\Microsoft.ScriptManager.WebForms.dll" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Providers.dll" />
+    <Content Include="bin\WebGrease.dll" />
+    <Content Include="CommonStyle.css" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\sweetalert2.min.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="default.html" />
+    <Content Include="Form_Klaim\ADMEDIKA_export.aspx" />
+    <Content Include="Form_Klaim\BlockingService.aspx" />
+    <Content Include="Form_Klaim\BukuTarif.aspx" />
+    <Content Include="Form_Klaim\BukuTarifList.aspx" />
+    <Content Include="Form_Klaim\ClaimAddReason.aspx" />
+    <Content Include="Form_Klaim\ClaimBatchFrame.aspx" />
+    <Content Include="Form_Klaim\ClaimBatchHeader.aspx" />
+    <Content Include="Form_Klaim\ClaimBatchInquiry.aspx" />
+    <Content Include="Form_Klaim\ClaimBatchList.aspx" />
+    <Content Include="Form_Klaim\ClaimBenTrx.aspx" />
+    <Content Include="Form_Klaim\ClaimDiagnosa.aspx" />
+    <Content Include="Form_Klaim\ClaimDiscount.aspx" />
+    <Content Include="Form_Klaim\ClaimFrame.aspx" />
+    <Content Include="Form_Klaim\ClaimHead.aspx" />
+    <Content Include="Form_Klaim\ClaimHeader.aspx" />
+    <Content Include="Form_Klaim\ClaimPending.aspx" />
+    <Content Include="Form_Klaim\ClaimReg.aspx" />
+    <Content Include="Form_Klaim\ClaimRejectPending.aspx" />
+    <Content Include="Form_Klaim\ClaimRevision.aspx" />
+    <Content Include="Form_Klaim\ClaimSurgery.aspx" />
+    <Content Include="Form_Klaim\ClaimUnapprove.aspx" />
+    <Content Include="Form_Klaim\ClaimPendingInquiry.aspx" />
+    <Content Include="Form_Klaim\CPbyNoSurat.aspx" />
+    <Content Include="Form_Klaim\CPbyRs.aspx" />
+    <Content Include="Form_Klaim\CPbyTrICD.aspx" />
+    <Content Include="Form_Klaim\CPList.aspx" />
+    <Content Include="Form_Klaim\CPbyTr.aspx" />
+    <Content Include="Form_Klaim\CPbyTrQuo.aspx" />
+    <Content Include="Form_Klaim\DownloadPDF.aspx" />
+    <Content Include="Form_Klaim\DownloadWord.aspx" />
+    <Content Include="Form_Klaim\Penjaminan.aspx" />
+    <Content Include="Form_Klaim\PenjaminanAging.aspx" />
+    <Content Include="Form_Klaim\PenjaminanAkhir.aspx" />
+    <Content Include="Form_Klaim\PenjaminanApproval.aspx" />
+    <Content Include="Form_Klaim\PenjaminanApprovalFrame.aspx" />
+    <Content Include="Form_Klaim\PenjaminanDiagnosa.aspx" />
+    <Content Include="Form_Klaim\PenjaminanFrame.aspx" />
+    <Content Include="Form_Klaim\PenjaminanInquiry.aspx" />
+    <Content Include="Form_Klaim\PenjaminanMonitoring.aspx" />
+    <Content Include="Form_Klaim\PenjaminanMonitoringEntri.aspx" />
+    <Content Include="Form_Klaim\PenjaminanSurat.aspx" />
+    <Content Include="Form_Klaim\Provider.aspx" />
+    <Content Include="Form_Klaim\ProviderClinicalPathway.aspx" />
+    <Content Include="Form_Klaim\ProviderEntry.aspx" />
+    <Content Include="Form_Klaim\ProviderFrame.aspx" />
+    <Content Include="Form_Klaim\ProviderLayanan.aspx" />
+    <Content Include="Form_Klaim\ProviderPending.aspx" />
+    <Content Include="Form_Klaim\ProviderPeriode.aspx" />
+    <Content Include="Form_Klaim\ProviderPIC.aspx" />
+    <Content Include="Form_Klaim\ProviderRegistrasi.aspx" />
+    <Content Include="Form_Klaim\ProviderRekening.aspx" />
+    <Content Include="Form_Klaim\ProviderTarif.aspx" />
+    <Content Include="Form_Klaim\RevisionReg.aspx" />
+    <Content Include="Form_Klaim\TPA_CLAIM_FILE.aspx" />
+    <Content Include="Form_Klaim\TPA_Deposit.aspx" />
+    <Content Include="Form_Klaim\TPA_IncomingClaim.aspx" />
+    <Content Include="Form_Klaim\TPA_Reimbursement.aspx" />
+    <Content Include="Form_Klien\Policy_Expend_List.aspx" />
+    <Content Include="Form_Klien\Policy_Expend_History.aspx" />
+    <Content Include="Form_Klien\Policy_Expend.aspx" />
+    <Content Include="Form_Klien\Polis_Cancellation.aspx" />
+    <Content Include="Form_Klien\Polis_Deposit.aspx" />
+    <Content Include="Form_Klien\Polis_Endorsement.aspx" />
+    <Content Include="Form_Klien\Polis_Endorsement_Approval.aspx" />
+    <Content Include="Form_Klien\Polis_Endorsement_Approval_Button.aspx" />
+    <Content Include="Form_Klien\Polis_Endorsement_Approval_Frame.aspx" />
+    <Content Include="Form_Klien\Polis_Endorsement_BenefitDetail.aspx" />
+    <Content Include="Form_Klien\Polis_Endorsement_Frame.aspx" />
+    <Content Include="Form_Klien\Polis_Endorsement_Header.aspx" />
+    <Content Include="Form_Klien\Polis_Endorsement_Package.aspx" />
+    <Content Include="Form_Klien\Polis_Endorsement_Premium.aspx" />
+    <Content Include="Form_Klien\Polis_Member.aspx" />
+    <Content Include="Form_Klien\Polis_NBRN.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Biaya.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Claim.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Claim_Regno.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Finance_Frame.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Finance_Header.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Plan.aspx" />
+    <Content Include="Form_Klien\PolisFrame.aspx" />
+    <Content Include="Form_Klien\PolisHeader.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Benefit.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Benefit_Detail.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Finance.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Loading.aspx" />
+    <Content Include="Form_Klien\Polis_Period_Premi.aspx" />
+    <Content Include="Form_Klien\Polis_Period_TC.aspx" />
+    <Content Include="Form_Klien\Polis_Period_TPA.aspx" />
+    <Content Include="Form_Klien\Polis_PreRenewal.aspx" />
+    <Content Include="Form_Klien\Polis_PreRenewal_Report.aspx" />
+    <Content Include="Form_Klien\Polis_PreRenewal_Report_Frame.aspx" />
+    <Content Include="Form_Klien\Polis_Print_Frame.aspx" />
+    <Content Include="Form_Klien\Polis_Print_Header.aspx" />
+    <Content Include="Form_Member\GPA_Approval.aspx" />
+    <Content Include="Form_Member\GPA_ApprovalList.aspx" />
+    <Content Include="Form_Member\GPA_Approval_Frame.aspx" />
+    <Content Include="Form_Member\GPA_Endorsement_Inquiry.aspx" />
+    <Content Include="Form_Member\GPA_History_Endorsement.aspx" />
+    <Content Include="Form_Member\GPA_History_Member_Endorsement.aspx" />
+    <Content Include="Form_Member\GPA_Proses_BAN.aspx" />
+    <Content Include="Form_Member\GPA_Proses_BAN_Frame.aspx" />
+    <Content Include="Form_Member\GPA_Proses_BAN_List.aspx" />
+    <Content Include="Form_Member\GPA_Proses_CAN.aspx" />
+    <Content Include="Form_Member\GPA_Proses_CAN_Frame.aspx" />
+    <Content Include="Form_Member\GPA_Proses_CAN_List.aspx" />
+    <Content Include="Form_Member\GPA_Proses_CHG.aspx" />
+    <Content Include="Form_Member\GPA_Proses_CHG_Frame.aspx" />
+    <Content Include="Form_Member\GPA_Proses_CHG_List.aspx" />
+    <Content Include="Form_Member\GPA_Proses_DEL.aspx" />
+    <Content Include="Form_Member\GPA_Proses_DEL_Frame.aspx" />
+    <Content Include="Form_Member\GPA_Proses_DEL_List.aspx" />
+    <Content Include="Form_Member\GPA_Proses_RPC.aspx" />
+    <Content Include="Form_Member\GPA_Proses_RPC_Frame.aspx" />
+    <Content Include="Form_Member\GPA_Proses_RPC_List.aspx" />
+    <Content Include="Form_Member\GPA_Proses_UPD.aspx" />
+    <Content Include="Form_Member\GPA_Proses_UPD_Frame.aspx" />
+    <Content Include="Form_Member\GPA_Proses_UPD_List.aspx" />
+    <Content Include="Form_Member\GPA_Proses.aspx" />
+    <Content Include="Form_Member\GPA_Proses_ADD.aspx" />
+    <Content Include="Form_Member\GPA_Proses_ADD_Frame.aspx" />
+    <Content Include="Form_Member\GPA_Proses_ADD_List.aspx" />
+    <Content Include="Form_Member\GPA_Proses_Frame.aspx" />
+    <Content Include="Form_Member\GPA_Reg.aspx" />
+    <Content Include="Form_Member\GPA_Register.aspx" />
+    <Content Include="Form_Member\GPA_TPA_Enrollment.aspx" />
+    <Content Include="Form_Member\PesertaInfo.aspx" />
+    <Content Include="Form_Member\PesertaInfo_CLAIMBENEFIT.aspx" />
+    <Content Include="Form_Member\PesertaInfo_CLAIMBENEFITLIMIT.aspx" />
+    <Content Include="Form_Member\PesertaInfo_CLAIMHISTORY.aspx" />
+    <Content Include="Form_Member\PesertaInfo_CLAIMTRX.aspx" />
+    <Content Include="Form_Member\PesertaInfo_Frame.aspx" />
+    <Content Include="Form_Member\PesertaInfo_PREMIUM.aspx" />
+    <Content Include="Form_Parameter\Parameters.aspx" />
+    <Content Include="Form_Tools\AdditionalInfo.aspx" />
+    <Content Include="Form_Tools\Email.aspx" />
+    <Content Include="Form_Tools\InquiryScreen.aspx" />
+    <Content Include="Form_Tools\JumpAppMenu.aspx" />
+    <Content Include="Form_Tools\PaidTrx.aspx" />
+    <Content Include="Form_Tools\Remark.aspx" />
+    <Content Include="Form_Tools\ReportLoad.aspx" />
+    <Content Include="Form_Tools\Report_List.aspx" />
+    <Content Include="Form_Tools\Report_Main.html" />
+    <Content Include="Form_Tools\Report_Setup.aspx" />
+    <Content Include="Form_Tools\SearchEmployeCompany.aspx" />
+    <Content Include="Form_Tools\Search_Mode1.aspx" />
+    <Content Include="Form_Tools\Track.aspx" />
+    <Content Include="Form_Tools\TrackApi.aspx" />
+    <Content Include="HalodocRPT.aspx" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\ico_48.png" />
+    <Content Include="Images\loader.gif" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\sweetalert2.all.min.js" />
+    <Content Include="Standard\Loader.gif" />
+    <Content Include="Templates\STEMPEL.jpg" />
+    <Content Include="Templates\TAKAFUL_ADMEDIKA.jpg" />
+    <Content Include="Templates\TAKAFUL_FULLERTON.jpg" />
+    <Content Include="Templates\TAKAFUL_HALODOC.jpg" />
+    <Content Include="Templates\Takaful_Template_page-0001.jpg" />
+    <Content Include="Templates\Takaful_Template_page-0002.jpg" />
+    <Content Include="Templates\TAKAFUL_VIP CUSTOMER.jpg" />
+    <Content Include="Templates\TTD.jpg" />
+    <Content Include="Templates\TTD2.jpg" />
+    <Content Include="Web References\SSRS\DocumentMapNode.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SSRS\ExecutionInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SSRS\ExecutionInfo2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SSRS\Extension.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SSRS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\SSRS\ReportExecution2005.wsdl" />
+    <Content Include="Web References\SSRS\Warning.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\OWLEXA_enrollment\ActionResultCustom.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\OWLEXA_enrollment\EnrollmentWebService.wsdl" />
+    <Content Include="Web References\OWLEXA_enrollment\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="WebService\MobileApps.asmx" />
+    <Content Include="Templates\TemplateBukuTarif.xlsx" />
+    <Content Include="Templates\TemplateBukuTarifKamar.xlsx" />
+    <None Include="Web.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Redirect.aspx" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
+    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.js" />
+    <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Standard\BodyMenu.aspx" />
+    <Content Include="Standard\CommonStyle.css" />
+    <Content Include="Standard\default.html" />
+    <Content Include="Standard\Header.aspx" />
+    <Content Include="Standard\Main.aspx" />
+    <Content Include="Standard\Title.aspx" />
+    <Content Include="Bundle.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Class\Crypto.cs" />
+    <Compile Include="Class\GlobalUse.cs" />
+    <Compile Include="Class\HierarchicalDataSet.cs" />
+    <Compile Include="Class\Impersonation.cs" />
+    <Compile Include="Class\PdfBackgroundHelper.cs" />
+    <Compile Include="Class\PdfGenerator.cs" />
+    <Compile Include="Class\TPA_OWLEXA.cs" />
+    <Compile Include="Class\WebCamService.cs" />
+    <Compile Include="Class\WordGenerator.cs" />
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Document\Document.cs" />
+    <Compile Include="Form_Klaim\ADMEDIKA_export.aspx.cs">
+      <DependentUpon>ADMEDIKA_export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ADMEDIKA_export.aspx.designer.cs">
+      <DependentUpon>ADMEDIKA_export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\BlockingService.aspx.cs">
+      <DependentUpon>BlockingService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\BlockingService.aspx.designer.cs">
+      <DependentUpon>BlockingService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\BukuTarif.aspx.cs">
+      <DependentUpon>BukuTarif.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\BukuTarif.aspx.designer.cs">
+      <DependentUpon>BukuTarif.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\BukuTarifList.aspx.cs">
+      <DependentUpon>BukuTarifList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\BukuTarifList.aspx.designer.cs">
+      <DependentUpon>BukuTarifList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimAddReason.aspx.cs">
+      <DependentUpon>ClaimAddReason.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimAddReason.aspx.designer.cs">
+      <DependentUpon>ClaimAddReason.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBatchFrame.aspx.cs">
+      <DependentUpon>ClaimBatchFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBatchFrame.aspx.designer.cs">
+      <DependentUpon>ClaimBatchFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBatchHeader.aspx.cs">
+      <DependentUpon>ClaimBatchHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBatchHeader.aspx.designer.cs">
+      <DependentUpon>ClaimBatchHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBatchInquiry.aspx.cs">
+      <DependentUpon>ClaimBatchInquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBatchInquiry.aspx.designer.cs">
+      <DependentUpon>ClaimBatchInquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBatchList.aspx.cs">
+      <DependentUpon>ClaimBatchList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBatchList.aspx.designer.cs">
+      <DependentUpon>ClaimBatchList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBenTrx.aspx.cs">
+      <DependentUpon>ClaimBenTrx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimBenTrx.aspx.designer.cs">
+      <DependentUpon>ClaimBenTrx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimDiagnosa.aspx.cs">
+      <DependentUpon>ClaimDiagnosa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimDiagnosa.aspx.designer.cs">
+      <DependentUpon>ClaimDiagnosa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimDiscount.aspx.cs">
+      <DependentUpon>ClaimDiscount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimDiscount.aspx.designer.cs">
+      <DependentUpon>ClaimDiscount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimFrame.aspx.cs">
+      <DependentUpon>ClaimFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimFrame.aspx.designer.cs">
+      <DependentUpon>ClaimFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimHead.aspx.cs">
+      <DependentUpon>ClaimHead.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimHead.aspx.designer.cs">
+      <DependentUpon>ClaimHead.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimHeader.aspx.cs">
+      <DependentUpon>ClaimHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimHeader.aspx.designer.cs">
+      <DependentUpon>ClaimHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimPending.aspx.cs">
+      <DependentUpon>ClaimPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimPending.aspx.designer.cs">
+      <DependentUpon>ClaimPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimReg.aspx.cs">
+      <DependentUpon>ClaimReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimReg.aspx.designer.cs">
+      <DependentUpon>ClaimReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimRejectPending.aspx.cs">
+      <DependentUpon>ClaimRejectPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimRejectPending.aspx.designer.cs">
+      <DependentUpon>ClaimRejectPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimRevision.aspx.cs">
+      <DependentUpon>ClaimRevision.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimRevision.aspx.designer.cs">
+      <DependentUpon>ClaimRevision.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimSurgery.aspx.cs">
+      <DependentUpon>ClaimSurgery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimSurgery.aspx.designer.cs">
+      <DependentUpon>ClaimSurgery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimUnapprove.aspx.cs">
+      <DependentUpon>ClaimUnapprove.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimUnapprove.aspx.designer.cs">
+      <DependentUpon>ClaimUnapprove.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimPendingInquiry.aspx.cs">
+      <DependentUpon>ClaimPendingInquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ClaimPendingInquiry.aspx.designer.cs">
+      <DependentUpon>ClaimPendingInquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyNoSurat.aspx.cs">
+      <DependentUpon>CPbyNoSurat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyNoSurat.aspx.designer.cs">
+      <DependentUpon>CPbyNoSurat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyRs.aspx.cs">
+      <DependentUpon>CPbyRs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyRs.aspx.designer.cs">
+      <DependentUpon>CPbyRs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyTrICD.aspx.cs">
+      <DependentUpon>CPbyTrICD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyTrICD.aspx.designer.cs">
+      <DependentUpon>CPbyTrICD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\CPList.aspx.cs">
+      <DependentUpon>CPList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\CPList.aspx.designer.cs">
+      <DependentUpon>CPList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyTr.aspx.cs">
+      <DependentUpon>CPbyTr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyTr.aspx.designer.cs">
+      <DependentUpon>CPbyTr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyTrQuo.aspx.cs">
+      <DependentUpon>CPbyTrQuo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\CPbyTrQuo.aspx.designer.cs">
+      <DependentUpon>CPbyTrQuo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\DownloadPDF.aspx.cs">
+      <DependentUpon>DownloadPDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\DownloadPDF.aspx.designer.cs">
+      <DependentUpon>DownloadPDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\DownloadWord.aspx.cs">
+      <DependentUpon>DownloadWord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\DownloadWord.aspx.designer.cs">
+      <DependentUpon>DownloadWord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\Penjaminan.aspx.cs">
+      <DependentUpon>Penjaminan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\Penjaminan.aspx.designer.cs">
+      <DependentUpon>Penjaminan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanAging.aspx.cs">
+      <DependentUpon>PenjaminanAging.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanAging.aspx.designer.cs">
+      <DependentUpon>PenjaminanAging.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanAkhir.aspx.cs">
+      <DependentUpon>PenjaminanAkhir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanAkhir.aspx.designer.cs">
+      <DependentUpon>PenjaminanAkhir.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanApproval.aspx.cs">
+      <DependentUpon>PenjaminanApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanApproval.aspx.designer.cs">
+      <DependentUpon>PenjaminanApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanApprovalFrame.aspx.cs">
+      <DependentUpon>PenjaminanApprovalFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanApprovalFrame.aspx.designer.cs">
+      <DependentUpon>PenjaminanApprovalFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanDiagnosa.aspx.cs">
+      <DependentUpon>PenjaminanDiagnosa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanDiagnosa.aspx.designer.cs">
+      <DependentUpon>PenjaminanDiagnosa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanFrame.aspx.cs">
+      <DependentUpon>PenjaminanFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanFrame.aspx.designer.cs">
+      <DependentUpon>PenjaminanFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanInquiry.aspx.cs">
+      <DependentUpon>PenjaminanInquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanInquiry.aspx.designer.cs">
+      <DependentUpon>PenjaminanInquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanMonitoring.aspx.cs">
+      <DependentUpon>PenjaminanMonitoring.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanMonitoring.aspx.designer.cs">
+      <DependentUpon>PenjaminanMonitoring.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanMonitoringEntri.aspx.cs">
+      <DependentUpon>PenjaminanMonitoringEntri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanMonitoringEntri.aspx.designer.cs">
+      <DependentUpon>PenjaminanMonitoringEntri.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanSurat.aspx.cs">
+      <DependentUpon>PenjaminanSurat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\PenjaminanSurat.aspx.designer.cs">
+      <DependentUpon>PenjaminanSurat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\Provider.aspx.cs">
+      <DependentUpon>Provider.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\Provider.aspx.designer.cs">
+      <DependentUpon>Provider.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderClinicalPathway.aspx.cs">
+      <DependentUpon>ProviderClinicalPathway.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderClinicalPathway.aspx.designer.cs">
+      <DependentUpon>ProviderClinicalPathway.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderEntry.aspx.cs">
+      <DependentUpon>ProviderEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderEntry.aspx.designer.cs">
+      <DependentUpon>ProviderEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderFrame.aspx.cs">
+      <DependentUpon>ProviderFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderFrame.aspx.designer.cs">
+      <DependentUpon>ProviderFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderLayanan.aspx.cs">
+      <DependentUpon>ProviderLayanan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderLayanan.aspx.designer.cs">
+      <DependentUpon>ProviderLayanan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderPending.aspx.cs">
+      <DependentUpon>ProviderPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderPending.aspx.designer.cs">
+      <DependentUpon>ProviderPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderPeriode.aspx.cs">
+      <DependentUpon>ProviderPeriode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderPeriode.aspx.designer.cs">
+      <DependentUpon>ProviderPeriode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderPIC.aspx.cs">
+      <DependentUpon>ProviderPIC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderPIC.aspx.designer.cs">
+      <DependentUpon>ProviderPIC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderRegistrasi.aspx.cs">
+      <DependentUpon>ProviderRegistrasi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderRegistrasi.aspx.designer.cs">
+      <DependentUpon>ProviderRegistrasi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderRekening.aspx.cs">
+      <DependentUpon>ProviderRekening.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderRekening.aspx.designer.cs">
+      <DependentUpon>ProviderRekening.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderTarif.aspx.cs">
+      <DependentUpon>ProviderTarif.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\ProviderTarif.aspx.designer.cs">
+      <DependentUpon>ProviderTarif.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\RevisionReg.aspx.cs">
+      <DependentUpon>RevisionReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\RevisionReg.aspx.designer.cs">
+      <DependentUpon>RevisionReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\TPA_CLAIM_FILE.aspx.cs">
+      <DependentUpon>TPA_CLAIM_FILE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\TPA_CLAIM_FILE.aspx.designer.cs">
+      <DependentUpon>TPA_CLAIM_FILE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\TPA_Deposit.aspx.cs">
+      <DependentUpon>TPA_Deposit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\TPA_Deposit.aspx.designer.cs">
+      <DependentUpon>TPA_Deposit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\TPA_IncomingClaim.aspx.cs">
+      <DependentUpon>TPA_IncomingClaim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\TPA_IncomingClaim.aspx.designer.cs">
+      <DependentUpon>TPA_IncomingClaim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klaim\TPA_Reimbursement.aspx.cs">
+      <DependentUpon>TPA_Reimbursement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klaim\TPA_Reimbursement.aspx.designer.cs">
+      <DependentUpon>TPA_Reimbursement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Policy_Expend_List.aspx.cs">
+      <DependentUpon>Policy_Expend_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Policy_Expend_List.aspx.designer.cs">
+      <DependentUpon>Policy_Expend_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Policy_Expend_History.aspx.cs">
+      <DependentUpon>Policy_Expend_History.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Policy_Expend_History.aspx.designer.cs">
+      <DependentUpon>Policy_Expend_History.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Policy_Expend.aspx.cs">
+      <DependentUpon>Policy_Expend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Policy_Expend.aspx.designer.cs">
+      <DependentUpon>Policy_Expend.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Cancellation.aspx.cs">
+      <DependentUpon>Polis_Cancellation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Cancellation.aspx.designer.cs">
+      <DependentUpon>Polis_Cancellation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Deposit.aspx.cs">
+      <DependentUpon>Polis_Deposit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Deposit.aspx.designer.cs">
+      <DependentUpon>Polis_Deposit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement.aspx.cs">
+      <DependentUpon>Polis_Endorsement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement.aspx.designer.cs">
+      <DependentUpon>Polis_Endorsement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Approval.aspx.cs">
+      <DependentUpon>Polis_Endorsement_Approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Approval.aspx.designer.cs">
+      <DependentUpon>Polis_Endorsement_Approval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Approval_Button.aspx.cs">
+      <DependentUpon>Polis_Endorsement_Approval_Button.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Approval_Button.aspx.designer.cs">
+      <DependentUpon>Polis_Endorsement_Approval_Button.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Approval_Frame.aspx.cs">
+      <DependentUpon>Polis_Endorsement_Approval_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Approval_Frame.aspx.designer.cs">
+      <DependentUpon>Polis_Endorsement_Approval_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_BenefitDetail.aspx.cs">
+      <DependentUpon>Polis_Endorsement_BenefitDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_BenefitDetail.aspx.designer.cs">
+      <DependentUpon>Polis_Endorsement_BenefitDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Frame.aspx.cs">
+      <DependentUpon>Polis_Endorsement_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Frame.aspx.designer.cs">
+      <DependentUpon>Polis_Endorsement_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Header.aspx.cs">
+      <DependentUpon>Polis_Endorsement_Header.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Header.aspx.designer.cs">
+      <DependentUpon>Polis_Endorsement_Header.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Package.aspx.cs">
+      <DependentUpon>Polis_Endorsement_Package.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Package.aspx.designer.cs">
+      <DependentUpon>Polis_Endorsement_Package.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Premium.aspx.cs">
+      <DependentUpon>Polis_Endorsement_Premium.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Endorsement_Premium.aspx.designer.cs">
+      <DependentUpon>Polis_Endorsement_Premium.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Member.aspx.cs">
+      <DependentUpon>Polis_Member.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Member.aspx.designer.cs">
+      <DependentUpon>Polis_Member.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_NBRN.aspx.cs">
+      <DependentUpon>Polis_NBRN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_NBRN.aspx.designer.cs">
+      <DependentUpon>Polis_NBRN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Biaya.aspx.cs">
+      <DependentUpon>Polis_Period_Biaya.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Biaya.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Biaya.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Claim.aspx.cs">
+      <DependentUpon>Polis_Period_Claim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Claim.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Claim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Claim_Regno.aspx.cs">
+      <DependentUpon>Polis_Period_Claim_Regno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Claim_Regno.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Claim_Regno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Finance_Frame.aspx.cs">
+      <DependentUpon>Polis_Period_Finance_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Finance_Frame.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Finance_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Finance_Header.aspx.cs">
+      <DependentUpon>Polis_Period_Finance_Header.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Finance_Header.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Finance_Header.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Plan.aspx.cs">
+      <DependentUpon>Polis_Period_Plan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Plan.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Plan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\PolisFrame.aspx.cs">
+      <DependentUpon>PolisFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\PolisFrame.aspx.designer.cs">
+      <DependentUpon>PolisFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\PolisHeader.aspx.cs">
+      <DependentUpon>PolisHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\PolisHeader.aspx.designer.cs">
+      <DependentUpon>PolisHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Benefit.aspx.cs">
+      <DependentUpon>Polis_Period_Benefit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Benefit.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Benefit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Benefit_Detail.aspx.cs">
+      <DependentUpon>Polis_Period_Benefit_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Benefit_Detail.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Benefit_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Finance.aspx.cs">
+      <DependentUpon>Polis_Period_Finance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Finance.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Finance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Loading.aspx.cs">
+      <DependentUpon>Polis_Period_Loading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Loading.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Loading.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Premi.aspx.cs">
+      <DependentUpon>Polis_Period_Premi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_Premi.aspx.designer.cs">
+      <DependentUpon>Polis_Period_Premi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_TC.aspx.cs">
+      <DependentUpon>Polis_Period_TC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_TC.aspx.designer.cs">
+      <DependentUpon>Polis_Period_TC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_TPA.aspx.cs">
+      <DependentUpon>Polis_Period_TPA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Period_TPA.aspx.designer.cs">
+      <DependentUpon>Polis_Period_TPA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_PreRenewal.aspx.cs">
+      <DependentUpon>Polis_PreRenewal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_PreRenewal.aspx.designer.cs">
+      <DependentUpon>Polis_PreRenewal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_PreRenewal_Report.aspx.cs">
+      <DependentUpon>Polis_PreRenewal_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_PreRenewal_Report.aspx.designer.cs">
+      <DependentUpon>Polis_PreRenewal_Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_PreRenewal_Report_Frame.aspx.cs">
+      <DependentUpon>Polis_PreRenewal_Report_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_PreRenewal_Report_Frame.aspx.designer.cs">
+      <DependentUpon>Polis_PreRenewal_Report_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Print_Frame.aspx.cs">
+      <DependentUpon>Polis_Print_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Print_Frame.aspx.designer.cs">
+      <DependentUpon>Polis_Print_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Print_Header.aspx.cs">
+      <DependentUpon>Polis_Print_Header.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Klien\Polis_Print_Header.aspx.designer.cs">
+      <DependentUpon>Polis_Print_Header.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Approval.aspx.cs">
+      <DependentUpon>GPA_Approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Approval.aspx.designer.cs">
+      <DependentUpon>GPA_Approval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_ApprovalList.aspx.cs">
+      <DependentUpon>GPA_ApprovalList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_ApprovalList.aspx.designer.cs">
+      <DependentUpon>GPA_ApprovalList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Approval_Frame.aspx.cs">
+      <DependentUpon>GPA_Approval_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Approval_Frame.aspx.designer.cs">
+      <DependentUpon>GPA_Approval_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Endorsement_Inquiry.aspx.cs">
+      <DependentUpon>GPA_Endorsement_Inquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Endorsement_Inquiry.aspx.designer.cs">
+      <DependentUpon>GPA_Endorsement_Inquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_History_Endorsement.aspx.cs">
+      <DependentUpon>GPA_History_Endorsement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_History_Endorsement.aspx.designer.cs">
+      <DependentUpon>GPA_History_Endorsement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_History_Member_Endorsement.aspx.cs">
+      <DependentUpon>GPA_History_Member_Endorsement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_History_Member_Endorsement.aspx.designer.cs">
+      <DependentUpon>GPA_History_Member_Endorsement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_BAN.aspx.cs">
+      <DependentUpon>GPA_Proses_BAN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_BAN.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_BAN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_BAN_Frame.aspx.cs">
+      <DependentUpon>GPA_Proses_BAN_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_BAN_Frame.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_BAN_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_BAN_List.aspx.cs">
+      <DependentUpon>GPA_Proses_BAN_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_BAN_List.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_BAN_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CAN.aspx.cs">
+      <DependentUpon>GPA_Proses_CAN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CAN.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_CAN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CAN_Frame.aspx.cs">
+      <DependentUpon>GPA_Proses_CAN_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CAN_Frame.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_CAN_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CAN_List.aspx.cs">
+      <DependentUpon>GPA_Proses_CAN_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CAN_List.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_CAN_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CHG.aspx.cs">
+      <DependentUpon>GPA_Proses_CHG.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CHG.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_CHG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CHG_Frame.aspx.cs">
+      <DependentUpon>GPA_Proses_CHG_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CHG_Frame.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_CHG_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CHG_List.aspx.cs">
+      <DependentUpon>GPA_Proses_CHG_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_CHG_List.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_CHG_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_DEL.aspx.cs">
+      <DependentUpon>GPA_Proses_DEL.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_DEL.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_DEL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_DEL_Frame.aspx.cs">
+      <DependentUpon>GPA_Proses_DEL_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_DEL_Frame.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_DEL_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_DEL_List.aspx.cs">
+      <DependentUpon>GPA_Proses_DEL_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_DEL_List.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_DEL_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_RPC.aspx.cs">
+      <DependentUpon>GPA_Proses_RPC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_RPC.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_RPC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_RPC_Frame.aspx.cs">
+      <DependentUpon>GPA_Proses_RPC_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_RPC_Frame.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_RPC_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_RPC_List.aspx.cs">
+      <DependentUpon>GPA_Proses_RPC_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_RPC_List.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_RPC_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_UPD.aspx.cs">
+      <DependentUpon>GPA_Proses_UPD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_UPD.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_UPD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_UPD_Frame.aspx.cs">
+      <DependentUpon>GPA_Proses_UPD_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_UPD_Frame.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_UPD_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_UPD_List.aspx.cs">
+      <DependentUpon>GPA_Proses_UPD_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_UPD_List.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_UPD_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses.aspx.cs">
+      <DependentUpon>GPA_Proses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses.aspx.designer.cs">
+      <DependentUpon>GPA_Proses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_ADD.aspx.cs">
+      <DependentUpon>GPA_Proses_ADD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_ADD.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_ADD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_ADD_Frame.aspx.cs">
+      <DependentUpon>GPA_Proses_ADD_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_ADD_Frame.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_ADD_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_ADD_List.aspx.cs">
+      <DependentUpon>GPA_Proses_ADD_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_ADD_List.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_ADD_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_Frame.aspx.cs">
+      <DependentUpon>GPA_Proses_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Proses_Frame.aspx.designer.cs">
+      <DependentUpon>GPA_Proses_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Reg.aspx.cs">
+      <DependentUpon>GPA_Reg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Reg.aspx.designer.cs">
+      <DependentUpon>GPA_Reg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Register.aspx.cs">
+      <DependentUpon>GPA_Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_Register.aspx.designer.cs">
+      <DependentUpon>GPA_Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\GPA_TPA_Enrollment.aspx.cs">
+      <DependentUpon>GPA_TPA_Enrollment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\GPA_TPA_Enrollment.aspx.designer.cs">
+      <DependentUpon>GPA_TPA_Enrollment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo.aspx.cs">
+      <DependentUpon>PesertaInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo.aspx.designer.cs">
+      <DependentUpon>PesertaInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_CLAIMBENEFIT.aspx.cs">
+      <DependentUpon>PesertaInfo_CLAIMBENEFIT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_CLAIMBENEFIT.aspx.designer.cs">
+      <DependentUpon>PesertaInfo_CLAIMBENEFIT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_CLAIMBENEFITLIMIT.aspx.cs">
+      <DependentUpon>PesertaInfo_CLAIMBENEFITLIMIT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_CLAIMBENEFITLIMIT.aspx.designer.cs">
+      <DependentUpon>PesertaInfo_CLAIMBENEFITLIMIT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_CLAIMHISTORY.aspx.cs">
+      <DependentUpon>PesertaInfo_CLAIMHISTORY.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_CLAIMHISTORY.aspx.designer.cs">
+      <DependentUpon>PesertaInfo_CLAIMHISTORY.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_CLAIMTRX.aspx.cs">
+      <DependentUpon>PesertaInfo_CLAIMTRX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_CLAIMTRX.aspx.designer.cs">
+      <DependentUpon>PesertaInfo_CLAIMTRX.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_Frame.aspx.cs">
+      <DependentUpon>PesertaInfo_Frame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_Frame.aspx.designer.cs">
+      <DependentUpon>PesertaInfo_Frame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_PREMIUM.aspx.cs">
+      <DependentUpon>PesertaInfo_PREMIUM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Member\PesertaInfo_PREMIUM.aspx.designer.cs">
+      <DependentUpon>PesertaInfo_PREMIUM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Parameter\Parameters.aspx.cs">
+      <DependentUpon>Parameters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Parameter\Parameters.aspx.designer.cs">
+      <DependentUpon>Parameters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\AdditionalInfo.aspx.cs">
+      <DependentUpon>AdditionalInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\AdditionalInfo.aspx.designer.cs">
+      <DependentUpon>AdditionalInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\Email.aspx.cs">
+      <DependentUpon>Email.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\Email.aspx.designer.cs">
+      <DependentUpon>Email.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\InquiryScreen.aspx.cs">
+      <DependentUpon>InquiryScreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\InquiryScreen.aspx.designer.cs">
+      <DependentUpon>InquiryScreen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\JumpAppMenu.aspx.cs">
+      <DependentUpon>JumpAppMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\JumpAppMenu.aspx.designer.cs">
+      <DependentUpon>JumpAppMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\PaidTrx.aspx.cs">
+      <DependentUpon>PaidTrx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\PaidTrx.aspx.designer.cs">
+      <DependentUpon>PaidTrx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\Remark.aspx.cs">
+      <DependentUpon>Remark.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\Remark.aspx.designer.cs">
+      <DependentUpon>Remark.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\ReportLoad.aspx.cs">
+      <DependentUpon>ReportLoad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\ReportLoad.aspx.designer.cs">
+      <DependentUpon>ReportLoad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\Report_List.aspx.cs">
+      <DependentUpon>Report_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\Report_List.aspx.designer.cs">
+      <DependentUpon>Report_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\Report_Setup.aspx.cs">
+      <DependentUpon>Report_Setup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\Report_Setup.aspx.designer.cs">
+      <DependentUpon>Report_Setup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\SearchEmployeCompany.aspx.cs">
+      <DependentUpon>SearchEmployeCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\SearchEmployeCompany.aspx.designer.cs">
+      <DependentUpon>SearchEmployeCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\Search_Mode1.aspx.cs">
+      <DependentUpon>Search_Mode1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\Search_Mode1.aspx.designer.cs">
+      <DependentUpon>Search_Mode1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\Track.aspx.cs">
+      <DependentUpon>Track.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\Track.aspx.designer.cs">
+      <DependentUpon>Track.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\TrackApi.aspx.cs">
+      <DependentUpon>TrackApi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\TrackApi.aspx.designer.cs">
+      <DependentUpon>TrackApi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HalodocRPT.aspx.cs">
+      <DependentUpon>HalodocRPT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HalodocRPT.aspx.designer.cs">
+      <DependentUpon>HalodocRPT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TemplateProviderClinicalPathway.cs" />
+    <Compile Include="Models\TemplateProviderClinicalPathwayProv.cs" />
+    <Compile Include="Models\TemplateProviderTarif.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Redirect.aspx.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Redirect.aspx.designer.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\BodyMenu.aspx.cs">
+      <DependentUpon>BodyMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Standard\BodyMenu.aspx.designer.cs">
+      <DependentUpon>BodyMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\Header.aspx.cs">
+      <DependentUpon>Header.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Standard\Header.aspx.designer.cs">
+      <DependentUpon>Header.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Standard\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\Title.aspx.cs">
+      <DependentUpon>Title.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Standard\Title.aspx.designer.cs">
+      <DependentUpon>Title.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Statistic.aspx.cs">
+      <DependentUpon>Statistic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Statistic.aspx.designer.cs">
+      <DependentUpon>Statistic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Temp\Admedika_Benefit.aspx.cs">
+      <DependentUpon>Admedika_Benefit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Temp\Admedika_Benefit.aspx.designer.cs">
+      <DependentUpon>Admedika_Benefit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\OWLEXA_enrollment\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\SSRS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="WebService\MobileApps.asmx.cs">
+      <DependentUpon>MobileApps.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Upload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Statistic.aspx" />
+    <Content Include="Temp\Admedika_Benefit.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://localhost/ReportServer/ReportExecution2005.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SSRS\</RelPath>
+      <UpdateFromURL>http://localhost/ReportServer/ReportExecution2005.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HEALTH_SSRS_ReportExecutionService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://test.owlexa.com/OWLEXA/services/EnrollmentWebService%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\OWLEXA_enrollment\</RelPath>
+      <UpdateFromURL>http://test.owlexa.com/OWLEXA/services/EnrollmentWebService%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>HEALTH_OWLEXA_enrollment_EnrollmentWebService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4530</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52950/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,518 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <Rectangle Name="Rectangle1">
+        <ReportItems>
+          <Textbox Name="TITLE">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Replace(First(Fields!TITLE.Value, "DataSet1"),Chr(13),VbCrLf)</Value>
+                    <Style>
+                      <FontFamily>tahoma</FontFamily>
+                      <FontSize>26pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>TITLE</rd:DefaultName>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>11.50125cm</Height>
+            <Width>24.79146cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>0cm</Top>
+        <Left>0cm</Left>
+        <Height>11.50125cm</Height>
+        <Width>24.79146cm</Width>
+        <Style>
+          <Border>
+            <Color>White</Color>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle3">
+        <ReportItems>
+          <Subreport Name="Subreport4">
+            <ReportName>RPT_POLICY_UR_ICD</ReportName>
+            <Parameters>
+              <Parameter Name="POLICY_PERIOD_ID">
+                <Value>=Parameters!POLICY_PERIOD_ID.Value</Value>
+              </Parameter>
+            </Parameters>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>0.9325cm</Height>
+            <Width>24.79146cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>12.1204cm</Top>
+        <Left>0cm</Left>
+        <Height>0.9325cm</Height>
+        <Width>24.79146cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle4">
+        <ReportItems>
+          <Subreport Name="Subreport5">
+            <ReportName>RPT_POLICY_UR_ICD_BYFAMREL</ReportName>
+            <Parameters>
+              <Parameter Name="POLICY_PERIOD_ID">
+                <Value>=Parameters!POLICY_PERIOD_ID.Value</Value>
+              </Parameter>
+            </Parameters>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>1.19708cm</Height>
+            <Width>24.79146cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>13.62005cm</Top>
+        <Left>0cm</Left>
+        <Height>1.19708cm</Height>
+        <Width>24.79146cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle5">
+        <ReportItems>
+          <Subreport Name="Subreport6">
+            <ReportName>RPT_POLICY_UR_ICD_BYBENEFIT</ReportName>
+            <Parameters>
+              <Parameter Name="POLICY_PERIOD_ID">
+                <Value>=Parameters!POLICY_PERIOD_ID.Value</Value>
+              </Parameter>
+            </Parameters>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>1.19708cm</Height>
+            <Width>24.79146cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>15.18109cm</Top>
+        <Left>0cm</Left>
+        <Height>1.19708cm</Height>
+        <Width>24.79146cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle6">
+        <ReportItems>
+          <Subreport Name="Subreport7">
+            <ReportName>RPT_POLICY_UR_CLAIM_BYFAMRELAMOUNT</ReportName>
+            <Parameters>
+              <Parameter Name="POLICY_PERIOD_ID">
+                <Value>=Parameters!POLICY_PERIOD_ID.Value</Value>
+              </Parameter>
+            </Parameters>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>1.19708cm</Height>
+            <Width>24.79146cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>16.79505cm</Top>
+        <Left>0cm</Left>
+        <Height>1.19708cm</Height>
+        <Width>24.79146cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle7">
+        <ReportItems>
+          <Subreport Name="Subreport8">
+            <ReportName>RPT_POLICY_UR_CLAIM_BYPR</ReportName>
+            <Parameters>
+              <Parameter Name="POLICY_PERIOD_ID">
+                <Value>=Parameters!POLICY_PERIOD_ID.Value</Value>
+              </Parameter>
+            </Parameters>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>1.19708cm</Height>
+            <Width>24.79146cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>18.38255cm</Top>
+        <Left>0cm</Left>
+        <Height>1.19708cm</Height>
+        <Width>24.79146cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle8">
+        <ReportItems>
+          <Subreport Name="Subreport9">
+            <ReportName>RPT_POLICY_UR_CLAIM_BYPROVIDER</ReportName>
+            <Parameters>
+              <Parameter Name="POLICY_PERIOD_ID">
+                <Value>=Parameters!POLICY_PERIOD_ID.Value</Value>
+              </Parameter>
+            </Parameters>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>1.19708cm</Height>
+            <Width>24.79146cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>19.97005cm</Top>
+        <Left>0cm</Left>
+        <Height>1.19708cm</Height>
+        <Width>24.79146cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle9">
+        <ReportItems>
+          <Subreport Name="Subreport10">
+            <ReportName>RPT_POLICY_UR_CLAIM_BYBENEFITMONTH</ReportName>
+            <Parameters>
+              <Parameter Name="POLICY_PERIOD_ID">
+                <Value>=Parameters!POLICY_PERIOD_ID.Value</Value>
+              </Parameter>
+            </Parameters>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>1.19708cm</Height>
+            <Width>24.79146cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>21.55755cm</Top>
+        <Left>0cm</Left>
+        <Height>1.19708cm</Height>
+        <Width>24.79146cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle10">
+        <ReportItems>
+          <Subreport Name="Subreport11">
+            <ReportName>RPT_POLICY_UR_CLAIM_BYMEMBER</ReportName>
+            <Parameters>
+              <Parameter Name="POLICY_PERIOD_ID">
+                <Value>=Parameters!POLICY_PERIOD_ID.Value</Value>
+              </Parameter>
+            </Parameters>
+            <Top>0cm</Top>
+            <Left>0cm</Left>
+            <Height>1.19708cm</Height>
+            <Width>24.79146cm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Subreport>
+        </ReportItems>
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>23.14505cm</Top>
+        <Left>0cm</Left>
+        <Height>1.19708cm</Height>
+        <Width>24.79146cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>24.34213cm</Height>
+    <Style />
+  </Body>
+  <Width>24.79146cm</Width>
+  <Page>
+    <PageHeader>
+      <Height>1.52646cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="Image2">
+          <Source>Database</Source>
+          <Value>=First(Fields!SMALL_LOGO.Value, "STANDARD")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Top>0cm</Top>
+          <Left>0cm</Left>
+          <Height>1.20896cm</Height>
+          <Width>5.945cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+        <BottomBorder>
+          <Style>Solid</Style>
+        </BottomBorder>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>0.92604cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+        <BackgroundColor>Teal</BackgroundColor>
+      </Style>
+    </PageFooter>
+    <PageHeight>21cm</PageHeight>
+    <PageWidth>29.7cm</PageWidth>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
+    <ColumnSpacing>1.27cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="ASKES">
+      <DataSourceReference>ASKES</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>f9165d9e-679b-4f5b-bbe9-c6b0f3ab91f2</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>ASKES</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@POLICY_PERIOD_ID">
+            <Value>=Parameters!POLICY_PERIOD_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandText>exec RPT_POLICY_UR
+@POLICY_PERIOD_ID</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="TITLE">
+          <DataField>TITLE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="STANDARD">
+      <Query>
+        <DataSourceName>ASKES</DataSourceName>
+        <CommandText>select * from V_LINK_SC_COMPANY where CODE='1'</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="TODAY">
+          <DataField>TODAY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CODE">
+          <DataField>CODE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NAME">
+          <DataField>NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ADDRESS1">
+          <DataField>ADDRESS1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ADDRESS2">
+          <DataField>ADDRESS2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ZIPCODE">
+          <DataField>ZIPCODE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="COUNTRY">
+          <DataField>COUNTRY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PHONE">
+          <DataField>PHONE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FAX">
+          <DataField>FAX</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EMAIL">
+          <DataField>EMAIL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LEADER_NAME">
+          <DataField>LEADER_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LEADER_TITLE">
+          <DataField>LEADER_TITLE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SMALL_LOGO">
+          <DataField>SMALL_LOGO</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="BIG_LOGO">
+          <DataField>BIG_LOGO</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="DEFAULT_PROFILE_PIC">
+          <DataField>DEFAULT_PROFILE_PIC</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="CREATEBY">
+          <DataField>CREATEBY</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="CREATEDATE">
+          <DataField>CREATEDATE</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="LASTCHANGEBY">
+          <DataField>LASTCHANGEBY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LASTCHANGEDATE">
+          <DataField>LASTCHANGEDATE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="POLICY_PERIOD_ID">
+      <DataType>String</DataType>
+      <Prompt>POLICY PERIOD ID</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>b3fe8b8f-9bd2-4720-9872-94b9861df313</rd:ReportID>
+</Report>

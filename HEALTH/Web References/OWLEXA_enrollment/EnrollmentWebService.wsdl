@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:ns2="http://datamodel.cms.ametis.com" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:tns="http://webservice.cms.ametis.com" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://dto.cms.ametis.com" targetNamespace="http://webservice.cms.ametis.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://dto.cms.ametis.com">
+      <xsd:complexType name="MemberImportDto">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="accountName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="accountNo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="actionType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="additionalInfo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="address2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="address3" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="address4" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="annualLimit" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="bankAccount" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="bankBranch" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="bankName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="birthdate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="birthplace" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="bpjsNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="cardTemplate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="city" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="clientCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="clientName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="dateTerminated" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="department" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="divisionCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="divisionName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="effectiveDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="email" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="employmentStatus" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="errReason" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="expireDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="graceEndDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="graceStartDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="groupCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="groupName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="handphone" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="importBatchNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isBlacklist" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isH2H" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" name="isProRate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isVIP" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="isWarning" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="jobFunction" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="joinDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="language" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="linkedCardNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="maritalStatus" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="memberName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="memberNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="mutationDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="newPolicyNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextCardNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextEffectiveDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextExpireDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextMemberNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextNewEmployeeNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextNewGroupCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextNewRealtionship" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextNewRelationship" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextNewSubGroupCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nextPolicyNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nik" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nirc" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="noClaimFlag" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="parentGroupCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="parentName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="parentNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="passportCountry" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="password" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="paymentMethod" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="policyExpireDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="policyInForce" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="policyNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="policySuspend" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="postCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="preExisting" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="printCard" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="product" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="race" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record20" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record21" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record22" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record23" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record24" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record25" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record40" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record41" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record44" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record47" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record48" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record49" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record52" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record53" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record55" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record57" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record61" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record62" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record63" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="record64" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="recordType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="relationship" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="renewalActivationDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respAddInfo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respBirthDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respCardNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respCardTemplate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respClientName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respDepartment" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respEffectiveDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respEmployeeName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respEmployeeNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respExpireDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respFullName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respGender" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respGroupCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respJoinDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respMemberId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respNIK" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respPlan" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respPolicyNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respRelationship" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respSubPolicyNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respTrack1" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="respTrack2" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="salary" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="sex" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="states" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subGroupCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subGroupName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subPolicyNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="suspendEnd" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="suspendReactiveStatus" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="suspendStart" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="swiftCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="swipeCardNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="telephoneOffice" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="telephoneRes" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="username" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EnrollmentResponseDto">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="addInfo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="birthdate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="cardNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="cardTemplate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="clientName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="department" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="effectiveDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="employeeName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="employeeNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="expireDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="fullName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="gender" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="groupCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="joinDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="memberId" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="nik" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="plan" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="policyNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="relationship" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="subPolicyNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="track1" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="track2" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://webservice.cms.ametis.com">
+      <xsd:element name="enrollmentSuspend">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentSuspendResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentChangePlan">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentChangePlanResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentReprint">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentReprintResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentUpdate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentUpdateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentLostCard">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentLostCardResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentRenewal">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentRenewalResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentReactiveCard">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentReactiveCardResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentAddition">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentAdditionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentDeletion">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentDeletionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentReactive">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="ns1:MemberImportDto" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in1" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="in2" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="enrollmentReactiveResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns2:ActionResultCustom" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://datamodel.cms.ametis.com">
+      <xsd:complexType name="ActionResultCustom">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="actionCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="additionalMessage" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="enrollmentResponseDto" nillable="true" type="ns1:EnrollmentResponseDto" />
+          <xsd:element minOccurs="0" name="excessMessage" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="reason" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="referenceNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="result" type="xsd:boolean" />
+          <xsd:element minOccurs="0" name="resultCollection" nillable="true" type="xsd:ArrayOfAnyType" />
+          <xsd:element minOccurs="0" name="resultObject" nillable="true" type="xsd:anyType" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="ArrayOfAnyType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" type="xsd:anyType" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="enrollmentAdditionResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentAdditionResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentUpdateRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentUpdate" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentDeletionRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentDeletion" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentLostCardResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentLostCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentChangePlanRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentChangePlan" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentLostCardRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentLostCard" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentReactiveResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentReactiveResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentRenewalResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentRenewalResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentAdditionRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentAddition" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentChangePlanResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentChangePlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentReprintResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentReprintResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentReactiveRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentReactive" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentDeletionResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentDeletionResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentSuspendResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentSuspendResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentUpdateResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentSuspendRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentSuspend" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentReprintRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentReprint" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentReactiveCardResponse">
+    <wsdl:part name="parameters" element="tns:enrollmentReactiveCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentReactiveCardRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentReactiveCard" />
+  </wsdl:message>
+  <wsdl:message name="enrollmentRenewalRequest">
+    <wsdl:part name="parameters" element="tns:enrollmentRenewal" />
+  </wsdl:message>
+  <wsdl:portType name="EnrollmentWebServicePortType">
+    <wsdl:operation name="enrollmentSuspend">
+      <wsdl:input name="enrollmentSuspendRequest" message="tns:enrollmentSuspendRequest" />
+      <wsdl:output name="enrollmentSuspendResponse" message="tns:enrollmentSuspendResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentChangePlan">
+      <wsdl:input name="enrollmentChangePlanRequest" message="tns:enrollmentChangePlanRequest" />
+      <wsdl:output name="enrollmentChangePlanResponse" message="tns:enrollmentChangePlanResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentReprint">
+      <wsdl:input name="enrollmentReprintRequest" message="tns:enrollmentReprintRequest" />
+      <wsdl:output name="enrollmentReprintResponse" message="tns:enrollmentReprintResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentUpdate">
+      <wsdl:input name="enrollmentUpdateRequest" message="tns:enrollmentUpdateRequest" />
+      <wsdl:output name="enrollmentUpdateResponse" message="tns:enrollmentUpdateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentLostCard">
+      <wsdl:input name="enrollmentLostCardRequest" message="tns:enrollmentLostCardRequest" />
+      <wsdl:output name="enrollmentLostCardResponse" message="tns:enrollmentLostCardResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentRenewal">
+      <wsdl:input name="enrollmentRenewalRequest" message="tns:enrollmentRenewalRequest" />
+      <wsdl:output name="enrollmentRenewalResponse" message="tns:enrollmentRenewalResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentReactiveCard">
+      <wsdl:input name="enrollmentReactiveCardRequest" message="tns:enrollmentReactiveCardRequest" />
+      <wsdl:output name="enrollmentReactiveCardResponse" message="tns:enrollmentReactiveCardResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentAddition">
+      <wsdl:input name="enrollmentAdditionRequest" message="tns:enrollmentAdditionRequest" />
+      <wsdl:output name="enrollmentAdditionResponse" message="tns:enrollmentAdditionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentDeletion">
+      <wsdl:input name="enrollmentDeletionRequest" message="tns:enrollmentDeletionRequest" />
+      <wsdl:output name="enrollmentDeletionResponse" message="tns:enrollmentDeletionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentReactive">
+      <wsdl:input name="enrollmentReactiveRequest" message="tns:enrollmentReactiveRequest" />
+      <wsdl:output name="enrollmentReactiveResponse" message="tns:enrollmentReactiveResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EnrollmentWebServiceHttpBinding" type="tns:EnrollmentWebServicePortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="enrollmentSuspend">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentSuspendRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentSuspendResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentChangePlan">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentChangePlanRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentChangePlanResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentReprint">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentReprintRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentReprintResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentUpdate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentUpdateRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentUpdateResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentLostCard">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentLostCardRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentLostCardResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentRenewal">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentRenewalRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentRenewalResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentReactiveCard">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentReactiveCardRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentReactiveCardResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentAddition">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentAdditionRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentAdditionResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentDeletion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentDeletionRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentDeletionResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="enrollmentReactive">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="enrollmentReactiveRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="enrollmentReactiveResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EnrollmentWebService">
+    <wsdl:port name="EnrollmentWebServiceHttpPort" binding="tns:EnrollmentWebServiceHttpBinding">
+      <wsdlsoap:address location="http://test.owlexa.com/OWLEXA//services/EnrollmentWebService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
