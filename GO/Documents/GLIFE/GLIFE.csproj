@@ -1,0 +1,1169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{01095130-D4AC-4B21-B72E-663CECFE2210}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GLIFE</RootNamespace>
+    <AssemblyName>GLIFE</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.60919.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="DMS.CuBESCore, Version=1.0.1895.34592, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DMS.CuBESCore.dll</HintPath>
+    </Reference>
+    <Reference Include="DMS.DBConnection, Version=1.0.1895.34592, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\DMS.DBConnection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Class\Global.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Form_App\AppInforceList.aspx" />
+    <Content Include="Form_App\AppInforceOutstandingList.aspx" />
+    <Content Include="Form_App\AppInforceRollbackList.aspx" />
+    <Content Include="Form_App\ApplicationBenefit.aspx" />
+    <Content Include="Form_App\ApplicationBenefitButton.aspx" />
+    <Content Include="Form_App\ApplicationBenefitFrame.aspx" />
+    <Content Include="Form_App\ApplicationBenefitFrameChild.aspx" />
+    <Content Include="Form_App\ApplicationBenefitReins.aspx" />
+    <Content Include="Form_App\ApplicationBenefitSeries.aspx" />
+    <Content Include="Form_App\ApplicationDocument.aspx" />
+    <Content Include="Form_App\ApplicationDocumentFrame.aspx" />
+    <Content Include="Form_App\ApplicationDocumentFrameChild.aspx" />
+    <Content Include="Form_App\ApplicationDocumentLetter.aspx" />
+    <Content Include="Form_App\ApplicationEndorsement.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementFPY.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementGeneric.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementPending.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementPending005.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementPending006.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementPendingFrame.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementRemark.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementRemarkFrame.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementRSC.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementSV_CAN.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementSV_MAT.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementSV_WDW.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementUncompletedItems.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementUPD.aspx" />
+    <Content Include="Form_App\ApplicationEndorsementWDW.aspx" />
+    <Content Include="Form_App\ApplicationFrame.aspx" />
+    <Content Include="Form_App\ApplicationHeader.aspx" />
+    <Content Include="Form_App\ApplicationMainInfo.aspx" />
+    <Content Include="Form_App\ApplicationMainInfoFrame.aspx" />
+    <Content Include="Form_App\ApplicationMainInfoUW.aspx" />
+    <Content Include="Form_App\ApplicationMCU.aspx" />
+    <Content Include="Form_App\ApplicationMCUInvoice.aspx" />
+    <Content Include="Form_App\ApplicationPending.aspx" />
+    <Content Include="Form_App\ApplicationPending001.aspx" />
+    <Content Include="Form_App\ApplicationPending002.aspx" />
+    <Content Include="Form_App\ApplicationPendingFrame.aspx" />
+    <Content Include="Form_App\ApplicationPremium.aspx" />
+    <Content Include="Form_App\ApplicationQuestion.aspx" />
+    <Content Include="Form_App\ApplicationReinsurance.aspx" />
+    <Content Include="Form_App\ApplicationRemark.aspx" />
+    <Content Include="Form_App\ApplicationRemarkFrame.aspx" />
+    <Content Include="Form_App\ApplicationUncompletedItems.aspx" />
+    <Content Include="Form_App\AppMCUInvoiceList.aspx" />
+    <Content Include="Form_App\AppMCUList.aspx" />
+    <Content Include="Form_App\AppNewList.aspx" />
+    <Content Include="Form_App\AppPending.aspx" />
+    <Content Include="Form_App\AppPOS.aspx" />
+    <Content Include="Form_App\AppPOSFrame.aspx" />
+    <Content Include="Form_App\AppPOSHistory.aspx" />
+    <Content Include="Form_App\AppRejectCancelList.aspx" />
+    <Content Include="Form_App\AppUncompleted.aspx" />
+    <Content Include="Form_Claim\ClaimApp.aspx" />
+    <Content Include="Form_Claim\ClaimAppFrame.aspx" />
+    <Content Include="Form_Claim\ClaimBenefit.aspx" />
+    <Content Include="Form_Claim\ClaimBenefitButton.aspx" />
+    <Content Include="Form_Claim\ClaimBenefitFrame.aspx" />
+    <Content Include="Form_Claim\ClaimBenefitFrameChild.aspx" />
+    <Content Include="Form_Claim\ClaimBenefitICD.aspx" />
+    <Content Include="Form_Claim\ClaimDocFrame.aspx" />
+    <Content Include="Form_Claim\ClaimDocLetter.aspx" />
+    <Content Include="Form_Claim\ClaimDocument.aspx" />
+    <Content Include="Form_Claim\ClaimHistory.aspx" />
+    <Content Include="Form_Claim\ClaimLetterFrame.aspx" />
+    <Content Include="Form_Claim\ClaimNotification.aspx" />
+    <Content Include="Form_Claim\ClaimPending.aspx" />
+    <Content Include="Form_Claim\ClaimPending003.aspx" />
+    <Content Include="Form_Claim\ClaimPending004.aspx" />
+    <Content Include="Form_Claim\ClaimPendingFrame.aspx" />
+    <Content Include="Form_Claim\ClaimPendingList.aspx" />
+    <Content Include="Form_Claim\ClaimReg.aspx" />
+    <Content Include="Form_Claim\ClaimRemark.aspx" />
+    <Content Include="Form_Claim\ClaimRemarkFrame.aspx" />
+    <Content Include="Form_Claim\ClaimShare.aspx" />
+    <Content Include="Form_Claim\ClaimShareFrame.aspx" />
+    <Content Include="Form_Claim\ClaimUncompletedItems.aspx" />
+    <Content Include="Form_Claim\ClaimUWFrame.aspx" />
+    <Content Include="Form_Claim\ClaimUWFrameChild.aspx" />
+    <Content Include="Form_Parameter\AmountApproval.aspx" />
+    <Content Include="Form_Parameter\Parameters.aspx" />
+    <Content Include="Form_Parameter\ParametersAdv.aspx" />
+    <Content Include="Form_Parameter\ParametersFrame.aspx" />
+    <Content Include="Form_Parameter\ParametersList.aspx" />
+    <Content Include="Form_Parameter\ReinsTC.aspx" />
+    <Content Include="Form_Parameter\TC.aspx" />
+    <Content Include="Form_Policy\Policy.aspx" />
+    <Content Include="Form_Policy\PolicyChannel.aspx" />
+    <Content Include="Form_Policy\PolicyChannelFrame.aspx" />
+    <Content Include="Form_Policy\PolicyFrame.aspx" />
+    <Content Include="Form_Policy\PolicyFREEKLOOKHeader.aspx" />
+    <Content Include="Form_Policy\PolicyFREELOOK.aspx" />
+    <Content Include="Form_Policy\PolicyFREELOOKFrame.aspx" />
+    <Content Include="Form_Policy\PolicyInvoice.aspx" />
+    <Content Include="Form_Policy\PolicyLoading.aspx" />
+    <Content Include="Form_Policy\PolicyOtherSetup.aspx" />
+    <Content Include="Form_Policy\PolicyReinsurance.aspx" />
+    <Content Include="Form_Policy\PolicyReinsuranceFrame.aspx" />
+    <Content Include="Form_Policy\PolicySaving.aspx" />
+    <Content Include="Form_Policy\PolicySavingFrame.aspx" />
+    <Content Include="Form_Policy\PolicyTC.aspx" />
+    <Content Include="Form_Policy\PolicyTCFrame.aspx" />
+    <Content Include="Form_Saving\ApplicationSaving.aspx" />
+    <Content Include="Form_Saving\ApplicationSavingFrame.aspx" />
+    <Content Include="Form_Saving\ApplicationSavingHeader.aspx" />
+    <Content Include="Form_Saving\BatchDetail.aspx" />
+    <Content Include="Form_Saving\BatchDetailPOS.aspx" />
+    <Content Include="Form_Saving\BatchList.aspx" />
+    <Content Include="Form_Saving\BatchListPOS.aspx" />
+    <Content Include="Form_Saving\BatchUpload.aspx" />
+    <Content Include="Form_Saving\BatchUploadPOS.aspx" />
+    <Content Include="Form_Saving\SavingMaturity.aspx" />
+    <Content Include="Form_Tools\InquiryScreen.aspx" />
+    <Content Include="Form_Tools\JumpAppMenu.aspx" />
+    <Content Include="Form_Tools\Letters.aspx" />
+    <Content Include="Form_Tools\OtherSetup.aspx" />
+    <Content Include="Form_Tools\PaymentAcc.aspx" />
+    <Content Include="Form_Tools\ReportView.aspx" />
+    <Content Include="Form_Tools\Track.aspx" />
+    <Content Include="Redirect.aspx" />
+    <Content Include="Standard\BodyMenu.aspx" />
+    <Content Include="Standard\CommonStyle.css" />
+    <Content Include="Standard\default.html" />
+    <Content Include="Standard\Header.aspx" />
+    <Content Include="Standard\Loader.gif" />
+    <Content Include="Standard\Main.aspx" />
+    <Content Include="Standard\Title.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\Crypto.cs" />
+    <Compile Include="Class\GlobalUse.cs" />
+    <Compile Include="Class\HierarchicalDataSet.cs" />
+    <Compile Include="Class\Impersonation.cs" />
+    <Compile Include="Class\WebCamService.cs" />
+    <Compile Include="Form_App\AppInforceList.aspx.cs">
+      <DependentUpon>AppInforceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppInforceList.aspx.designer.cs">
+      <DependentUpon>AppInforceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppInforceOutstandingList.aspx.cs">
+      <DependentUpon>AppInforceOutstandingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppInforceOutstandingList.aspx.designer.cs">
+      <DependentUpon>AppInforceOutstandingList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppInforceRollbackList.aspx.cs">
+      <DependentUpon>AppInforceRollbackList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppInforceRollbackList.aspx.designer.cs">
+      <DependentUpon>AppInforceRollbackList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefit.aspx.cs">
+      <DependentUpon>ApplicationBenefit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefit.aspx.designer.cs">
+      <DependentUpon>ApplicationBenefit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitButton.aspx.cs">
+      <DependentUpon>ApplicationBenefitButton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitButton.aspx.designer.cs">
+      <DependentUpon>ApplicationBenefitButton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitFrame.aspx.cs">
+      <DependentUpon>ApplicationBenefitFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitFrame.aspx.designer.cs">
+      <DependentUpon>ApplicationBenefitFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitFrameChild.aspx.cs">
+      <DependentUpon>ApplicationBenefitFrameChild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitFrameChild.aspx.designer.cs">
+      <DependentUpon>ApplicationBenefitFrameChild.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitReins.aspx.cs">
+      <DependentUpon>ApplicationBenefitReins.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitReins.aspx.designer.cs">
+      <DependentUpon>ApplicationBenefitReins.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitSeries.aspx.cs">
+      <DependentUpon>ApplicationBenefitSeries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationBenefitSeries.aspx.designer.cs">
+      <DependentUpon>ApplicationBenefitSeries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationDocument.aspx.cs">
+      <DependentUpon>ApplicationDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationDocument.aspx.designer.cs">
+      <DependentUpon>ApplicationDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationDocumentFrame.aspx.cs">
+      <DependentUpon>ApplicationDocumentFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationDocumentFrame.aspx.designer.cs">
+      <DependentUpon>ApplicationDocumentFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationDocumentFrameChild.aspx.cs">
+      <DependentUpon>ApplicationDocumentFrameChild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationDocumentFrameChild.aspx.designer.cs">
+      <DependentUpon>ApplicationDocumentFrameChild.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationDocumentLetter.aspx.cs">
+      <DependentUpon>ApplicationDocumentLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationDocumentLetter.aspx.designer.cs">
+      <DependentUpon>ApplicationDocumentLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsement.aspx.cs">
+      <DependentUpon>ApplicationEndorsement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsement.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementFPY.aspx.cs">
+      <DependentUpon>ApplicationEndorsementFPY.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementFPY.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementFPY.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementGeneric.aspx.cs">
+      <DependentUpon>ApplicationEndorsementGeneric.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementGeneric.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementGeneric.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementPending.aspx.cs">
+      <DependentUpon>ApplicationEndorsementPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementPending.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementPending005.aspx.cs">
+      <DependentUpon>ApplicationEndorsementPending005.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementPending005.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementPending005.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementPending006.aspx.cs">
+      <DependentUpon>ApplicationEndorsementPending006.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementPending006.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementPending006.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementPendingFrame.aspx.cs">
+      <DependentUpon>ApplicationEndorsementPendingFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementPendingFrame.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementPendingFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementRemark.aspx.cs">
+      <DependentUpon>ApplicationEndorsementRemark.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementRemark.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementRemark.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementRemarkFrame.aspx.cs">
+      <DependentUpon>ApplicationEndorsementRemarkFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementRemarkFrame.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementRemarkFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementRSC.aspx.cs">
+      <DependentUpon>ApplicationEndorsementRSC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementRSC.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementRSC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementSV_CAN.aspx.cs">
+      <DependentUpon>ApplicationEndorsementSV_CAN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementSV_CAN.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementSV_CAN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementSV_MAT.aspx.cs">
+      <DependentUpon>ApplicationEndorsementSV_MAT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementSV_MAT.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementSV_MAT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementSV_WDW.aspx.cs">
+      <DependentUpon>ApplicationEndorsementSV_WDW.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementSV_WDW.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementSV_WDW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementUncompletedItems.aspx.cs">
+      <DependentUpon>ApplicationEndorsementUncompletedItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementUncompletedItems.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementUncompletedItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementUPD.aspx.cs">
+      <DependentUpon>ApplicationEndorsementUPD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementUPD.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementUPD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementWDW.aspx.cs">
+      <DependentUpon>ApplicationEndorsementWDW.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationEndorsementWDW.aspx.designer.cs">
+      <DependentUpon>ApplicationEndorsementWDW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationFrame.aspx.cs">
+      <DependentUpon>ApplicationFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationFrame.aspx.designer.cs">
+      <DependentUpon>ApplicationFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationHeader.aspx.cs">
+      <DependentUpon>ApplicationHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationHeader.aspx.designer.cs">
+      <DependentUpon>ApplicationHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMainInfo.aspx.cs">
+      <DependentUpon>ApplicationMainInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMainInfo.aspx.designer.cs">
+      <DependentUpon>ApplicationMainInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMainInfoFrame.aspx.cs">
+      <DependentUpon>ApplicationMainInfoFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMainInfoFrame.aspx.designer.cs">
+      <DependentUpon>ApplicationMainInfoFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMainInfoUW.aspx.cs">
+      <DependentUpon>ApplicationMainInfoUW.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMainInfoUW.aspx.designer.cs">
+      <DependentUpon>ApplicationMainInfoUW.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMCU.aspx.cs">
+      <DependentUpon>ApplicationMCU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMCU.aspx.designer.cs">
+      <DependentUpon>ApplicationMCU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMCUInvoice.aspx.cs">
+      <DependentUpon>ApplicationMCUInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationMCUInvoice.aspx.designer.cs">
+      <DependentUpon>ApplicationMCUInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPending.aspx.cs">
+      <DependentUpon>ApplicationPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPending.aspx.designer.cs">
+      <DependentUpon>ApplicationPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPending001.aspx.cs">
+      <DependentUpon>ApplicationPending001.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPending001.aspx.designer.cs">
+      <DependentUpon>ApplicationPending001.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPending002.aspx.cs">
+      <DependentUpon>ApplicationPending002.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPending002.aspx.designer.cs">
+      <DependentUpon>ApplicationPending002.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPendingFrame.aspx.cs">
+      <DependentUpon>ApplicationPendingFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPendingFrame.aspx.designer.cs">
+      <DependentUpon>ApplicationPendingFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPremium.aspx.cs">
+      <DependentUpon>ApplicationPremium.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationPremium.aspx.designer.cs">
+      <DependentUpon>ApplicationPremium.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationQuestion.aspx.cs">
+      <DependentUpon>ApplicationQuestion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationQuestion.aspx.designer.cs">
+      <DependentUpon>ApplicationQuestion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationReinsurance.aspx.cs">
+      <DependentUpon>ApplicationReinsurance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationReinsurance.aspx.designer.cs">
+      <DependentUpon>ApplicationReinsurance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationRemark.aspx.cs">
+      <DependentUpon>ApplicationRemark.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationRemark.aspx.designer.cs">
+      <DependentUpon>ApplicationRemark.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationRemarkFrame.aspx.cs">
+      <DependentUpon>ApplicationRemarkFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationRemarkFrame.aspx.designer.cs">
+      <DependentUpon>ApplicationRemarkFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\ApplicationUncompletedItems.aspx.cs">
+      <DependentUpon>ApplicationUncompletedItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\ApplicationUncompletedItems.aspx.designer.cs">
+      <DependentUpon>ApplicationUncompletedItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppMCUInvoiceList.aspx.cs">
+      <DependentUpon>AppMCUInvoiceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppMCUInvoiceList.aspx.designer.cs">
+      <DependentUpon>AppMCUInvoiceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppMCUList.aspx.cs">
+      <DependentUpon>AppMCUList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppMCUList.aspx.designer.cs">
+      <DependentUpon>AppMCUList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppNewList.aspx.cs">
+      <DependentUpon>AppNewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppNewList.aspx.designer.cs">
+      <DependentUpon>AppNewList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppPending.aspx.cs">
+      <DependentUpon>AppPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppPending.aspx.designer.cs">
+      <DependentUpon>AppPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppPOS.aspx.cs">
+      <DependentUpon>AppPOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppPOS.aspx.designer.cs">
+      <DependentUpon>AppPOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppPOSFrame.aspx.cs">
+      <DependentUpon>AppPOSFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppPOSFrame.aspx.designer.cs">
+      <DependentUpon>AppPOSFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppPOSHistory.aspx.cs">
+      <DependentUpon>AppPOSHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppPOSHistory.aspx.designer.cs">
+      <DependentUpon>AppPOSHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppRejectCancelList.aspx.cs">
+      <DependentUpon>AppRejectCancelList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppRejectCancelList.aspx.designer.cs">
+      <DependentUpon>AppRejectCancelList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_App\AppUncompleted.aspx.cs">
+      <DependentUpon>AppUncompleted.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_App\AppUncompleted.aspx.designer.cs">
+      <DependentUpon>AppUncompleted.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimApp.aspx.cs">
+      <DependentUpon>ClaimApp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimApp.aspx.designer.cs">
+      <DependentUpon>ClaimApp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimAppFrame.aspx.cs">
+      <DependentUpon>ClaimAppFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimAppFrame.aspx.designer.cs">
+      <DependentUpon>ClaimAppFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefit.aspx.cs">
+      <DependentUpon>ClaimBenefit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefit.aspx.designer.cs">
+      <DependentUpon>ClaimBenefit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefitButton.aspx.cs">
+      <DependentUpon>ClaimBenefitButton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefitButton.aspx.designer.cs">
+      <DependentUpon>ClaimBenefitButton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefitFrame.aspx.cs">
+      <DependentUpon>ClaimBenefitFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefitFrame.aspx.designer.cs">
+      <DependentUpon>ClaimBenefitFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefitFrameChild.aspx.cs">
+      <DependentUpon>ClaimBenefitFrameChild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefitFrameChild.aspx.designer.cs">
+      <DependentUpon>ClaimBenefitFrameChild.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefitICD.aspx.cs">
+      <DependentUpon>ClaimBenefitICD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimBenefitICD.aspx.designer.cs">
+      <DependentUpon>ClaimBenefitICD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimDocFrame.aspx.cs">
+      <DependentUpon>ClaimDocFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimDocFrame.aspx.designer.cs">
+      <DependentUpon>ClaimDocFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimDocLetter.aspx.cs">
+      <DependentUpon>ClaimDocLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimDocLetter.aspx.designer.cs">
+      <DependentUpon>ClaimDocLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimDocument.aspx.cs">
+      <DependentUpon>ClaimDocument.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimDocument.aspx.designer.cs">
+      <DependentUpon>ClaimDocument.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimHistory.aspx.cs">
+      <DependentUpon>ClaimHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimHistory.aspx.designer.cs">
+      <DependentUpon>ClaimHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimLetterFrame.aspx.cs">
+      <DependentUpon>ClaimLetterFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimLetterFrame.aspx.designer.cs">
+      <DependentUpon>ClaimLetterFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimNotification.aspx.cs">
+      <DependentUpon>ClaimNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimNotification.aspx.designer.cs">
+      <DependentUpon>ClaimNotification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPending.aspx.cs">
+      <DependentUpon>ClaimPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPending.aspx.designer.cs">
+      <DependentUpon>ClaimPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPending003.aspx.cs">
+      <DependentUpon>ClaimPending003.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPending003.aspx.designer.cs">
+      <DependentUpon>ClaimPending003.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPending004.aspx.cs">
+      <DependentUpon>ClaimPending004.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPending004.aspx.designer.cs">
+      <DependentUpon>ClaimPending004.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPendingFrame.aspx.cs">
+      <DependentUpon>ClaimPendingFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPendingFrame.aspx.designer.cs">
+      <DependentUpon>ClaimPendingFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPendingList.aspx.cs">
+      <DependentUpon>ClaimPendingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimPendingList.aspx.designer.cs">
+      <DependentUpon>ClaimPendingList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimReg.aspx.cs">
+      <DependentUpon>ClaimReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimReg.aspx.designer.cs">
+      <DependentUpon>ClaimReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimRemark.aspx.cs">
+      <DependentUpon>ClaimRemark.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimRemark.aspx.designer.cs">
+      <DependentUpon>ClaimRemark.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimRemarkFrame.aspx.cs">
+      <DependentUpon>ClaimRemarkFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimRemarkFrame.aspx.designer.cs">
+      <DependentUpon>ClaimRemarkFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimShare.aspx.cs">
+      <DependentUpon>ClaimShare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimShare.aspx.designer.cs">
+      <DependentUpon>ClaimShare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimShareFrame.aspx.cs">
+      <DependentUpon>ClaimShareFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimShareFrame.aspx.designer.cs">
+      <DependentUpon>ClaimShareFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimUncompletedItems.aspx.cs">
+      <DependentUpon>ClaimUncompletedItems.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimUncompletedItems.aspx.designer.cs">
+      <DependentUpon>ClaimUncompletedItems.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimUWFrame.aspx.cs">
+      <DependentUpon>ClaimUWFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimUWFrame.aspx.designer.cs">
+      <DependentUpon>ClaimUWFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimUWFrameChild.aspx.cs">
+      <DependentUpon>ClaimUWFrameChild.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Claim\ClaimUWFrameChild.aspx.designer.cs">
+      <DependentUpon>ClaimUWFrameChild.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Parameter\AmountApproval.aspx.cs">
+      <DependentUpon>AmountApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Parameter\AmountApproval.aspx.designer.cs">
+      <DependentUpon>AmountApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Parameter\Parameters.aspx.cs">
+      <DependentUpon>Parameters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Parameter\Parameters.aspx.designer.cs">
+      <DependentUpon>Parameters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Parameter\ParametersAdv.aspx.cs">
+      <DependentUpon>ParametersAdv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Parameter\ParametersAdv.aspx.designer.cs">
+      <DependentUpon>ParametersAdv.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Parameter\ParametersFrame.aspx.cs">
+      <DependentUpon>ParametersFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Parameter\ParametersFrame.aspx.designer.cs">
+      <DependentUpon>ParametersFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Parameter\ParametersList.aspx.cs">
+      <DependentUpon>ParametersList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Parameter\ParametersList.aspx.designer.cs">
+      <DependentUpon>ParametersList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Parameter\ReinsTC.aspx.cs">
+      <DependentUpon>ReinsTC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Parameter\ReinsTC.aspx.designer.cs">
+      <DependentUpon>ReinsTC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Parameter\TC.aspx.cs">
+      <DependentUpon>TC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Parameter\TC.aspx.designer.cs">
+      <DependentUpon>TC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\Policy.aspx.cs">
+      <DependentUpon>Policy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\Policy.aspx.designer.cs">
+      <DependentUpon>Policy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyChannel.aspx.cs">
+      <DependentUpon>PolicyChannel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyChannel.aspx.designer.cs">
+      <DependentUpon>PolicyChannel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyChannelFrame.aspx.cs">
+      <DependentUpon>PolicyChannelFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyChannelFrame.aspx.designer.cs">
+      <DependentUpon>PolicyChannelFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyFrame.aspx.cs">
+      <DependentUpon>PolicyFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyFrame.aspx.designer.cs">
+      <DependentUpon>PolicyFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyFREEKLOOKHeader.aspx.cs">
+      <DependentUpon>PolicyFREEKLOOKHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyFREEKLOOKHeader.aspx.designer.cs">
+      <DependentUpon>PolicyFREEKLOOKHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyFREELOOK.aspx.cs">
+      <DependentUpon>PolicyFREELOOK.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyFREELOOK.aspx.designer.cs">
+      <DependentUpon>PolicyFREELOOK.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyFREELOOKFrame.aspx.cs">
+      <DependentUpon>PolicyFREELOOKFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyFREELOOKFrame.aspx.designer.cs">
+      <DependentUpon>PolicyFREELOOKFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyInvoice.aspx.cs">
+      <DependentUpon>PolicyInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyInvoice.aspx.designer.cs">
+      <DependentUpon>PolicyInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyLoading.aspx.cs">
+      <DependentUpon>PolicyLoading.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyLoading.aspx.designer.cs">
+      <DependentUpon>PolicyLoading.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyOtherSetup.aspx.cs">
+      <DependentUpon>PolicyOtherSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyOtherSetup.aspx.designer.cs">
+      <DependentUpon>PolicyOtherSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyReinsurance.aspx.cs">
+      <DependentUpon>PolicyReinsurance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyReinsurance.aspx.designer.cs">
+      <DependentUpon>PolicyReinsurance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyReinsuranceFrame.aspx.cs">
+      <DependentUpon>PolicyReinsuranceFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyReinsuranceFrame.aspx.designer.cs">
+      <DependentUpon>PolicyReinsuranceFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicySaving.aspx.cs">
+      <DependentUpon>PolicySaving.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicySaving.aspx.designer.cs">
+      <DependentUpon>PolicySaving.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicySavingFrame.aspx.cs">
+      <DependentUpon>PolicySavingFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicySavingFrame.aspx.designer.cs">
+      <DependentUpon>PolicySavingFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyTC.aspx.cs">
+      <DependentUpon>PolicyTC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyTC.aspx.designer.cs">
+      <DependentUpon>PolicyTC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyTCFrame.aspx.cs">
+      <DependentUpon>PolicyTCFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Policy\PolicyTCFrame.aspx.designer.cs">
+      <DependentUpon>PolicyTCFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\ApplicationSaving.aspx.cs">
+      <DependentUpon>ApplicationSaving.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\ApplicationSaving.aspx.designer.cs">
+      <DependentUpon>ApplicationSaving.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\ApplicationSavingFrame.aspx.cs">
+      <DependentUpon>ApplicationSavingFrame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\ApplicationSavingFrame.aspx.designer.cs">
+      <DependentUpon>ApplicationSavingFrame.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\ApplicationSavingHeader.aspx.cs">
+      <DependentUpon>ApplicationSavingHeader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\ApplicationSavingHeader.aspx.designer.cs">
+      <DependentUpon>ApplicationSavingHeader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\BatchDetail.aspx.cs">
+      <DependentUpon>BatchDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\BatchDetail.aspx.designer.cs">
+      <DependentUpon>BatchDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\BatchDetailPOS.aspx.cs">
+      <DependentUpon>BatchDetailPOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\BatchDetailPOS.aspx.designer.cs">
+      <DependentUpon>BatchDetailPOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\BatchList.aspx.cs">
+      <DependentUpon>BatchList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\BatchList.aspx.designer.cs">
+      <DependentUpon>BatchList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\BatchListPOS.aspx.cs">
+      <DependentUpon>BatchListPOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\BatchListPOS.aspx.designer.cs">
+      <DependentUpon>BatchListPOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\BatchUpload.aspx.cs">
+      <DependentUpon>BatchUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\BatchUpload.aspx.designer.cs">
+      <DependentUpon>BatchUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\BatchUploadPOS.aspx.cs">
+      <DependentUpon>BatchUploadPOS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\BatchUploadPOS.aspx.designer.cs">
+      <DependentUpon>BatchUploadPOS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Saving\SavingMaturity.aspx.cs">
+      <DependentUpon>SavingMaturity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Saving\SavingMaturity.aspx.designer.cs">
+      <DependentUpon>SavingMaturity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\InquiryScreen.aspx.cs">
+      <DependentUpon>InquiryScreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\InquiryScreen.aspx.designer.cs">
+      <DependentUpon>InquiryScreen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\JumpAppMenu.aspx.cs">
+      <DependentUpon>JumpAppMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\JumpAppMenu.aspx.designer.cs">
+      <DependentUpon>JumpAppMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\Letters.aspx.cs">
+      <DependentUpon>Letters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\Letters.aspx.designer.cs">
+      <DependentUpon>Letters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\OtherSetup.aspx.cs">
+      <DependentUpon>OtherSetup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\OtherSetup.aspx.designer.cs">
+      <DependentUpon>OtherSetup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\PaymentAcc.aspx.cs">
+      <DependentUpon>PaymentAcc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\PaymentAcc.aspx.designer.cs">
+      <DependentUpon>PaymentAcc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\ReportView.aspx.cs">
+      <DependentUpon>ReportView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\ReportView.aspx.designer.cs">
+      <DependentUpon>ReportView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Tools\Track.aspx.cs">
+      <DependentUpon>Track.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Form_Tools\Track.aspx.designer.cs">
+      <DependentUpon>Track.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Redirect.aspx.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Redirect.aspx.designer.cs">
+      <DependentUpon>Redirect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\BodyMenu.aspx.cs">
+      <DependentUpon>BodyMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Standard\BodyMenu.aspx.designer.cs">
+      <DependentUpon>BodyMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\Header.aspx.cs">
+      <DependentUpon>Header.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Standard\Header.aspx.designer.cs">
+      <DependentUpon>Header.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Standard\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Standard\Title.aspx.cs">
+      <DependentUpon>Title.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Standard\Title.aspx.designer.cs">
+      <DependentUpon>Title.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Form_Saving\SAVING - TEMPLATE.xls" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Upload\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52568/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

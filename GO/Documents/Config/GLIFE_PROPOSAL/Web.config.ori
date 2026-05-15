@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+
+<configuration>
+    <system.web>
+      <compilation debug="true" targetFramework="4.5" />
+      <httpRuntime targetFramework="4.5" />
+    </system.web>
+  <appSettings>
+    <add key="appid" value="CQ" />
+    <add key="conn" value="EAAAAHTnj5Lu5M00bVm628xtO9xFwIEyDHsQ+F2yVF8TDOb6T5Yl0JUd3onOVftXO4EwzsEfGjaaeOHuNYmGUJpKy+Pv4PmRQokYxsL/YEQgnfQCLP5n6boIG6ZUrqvHzS5Q+Eg8UWksjVqeYGsFeqScH3o=" />
+    <add key="enckey" value="01012015" />
+  </appSettings>
+    <system.webServer>
+        <defaultDocument>
+            <files>
+                <add value="login.aspx" />
+            </files>
+        </defaultDocument>
+    </system.webServer>
+</configuration>

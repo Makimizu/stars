@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+<configuration>
+  <system.web>
+    <httpHandlers>
+      <add path="Reserved.ReportViewerWebControl.axd" verb="*" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+        validate="false" />
+    </httpHandlers>
+    <compilation debug="true" targetFramework="4.5">
+      <buildProviders>
+        <add extension=".rdlc" type="Microsoft.Reporting.RdlBuildProvider, Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+      </buildProviders>
+    </compilation>
+    <httpRuntime targetFramework="4.5" />
+    <customErrors mode="Off"/>
+  </system.web>
+  <appSettings>
+    <add key="appid" value="GL" />
+    <add key="conn" value="EAAAABTy7KF/ZZxqQxTRncvSKv67Ju0hUkiiOeQTbpY0OPqFsdgby44y7VOGIn13ez/dA4S+N5YiLkZVpZX9qgLck8JG7ju9kwjrlIVcj5X4tANCz4AS6ASgfG2PC1AxkUV2C4wimK8w+6QMwh65zYDPgQ0=" />
+    <add key="enckey" value="01012015" />
+  </appSettings>
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false" />
+    <handlers>
+      <add name="ReportViewerWebControlHandler" preCondition="integratedMode" verb="*" path="Reserved.ReportViewerWebControl.axd" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    </handlers>
+  </system.webServer>
+</configuration>

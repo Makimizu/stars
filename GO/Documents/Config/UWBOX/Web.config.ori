@@ -1,0 +1,30 @@
+﻿<?xml version="1.0"?>
+
+<!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=169433
+  -->
+
+<configuration>
+    <configSections>
+        <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+            <section name="UWBOX.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+        </sectionGroup>
+    </configSections>
+    <system.web>
+      <compilation debug="true" targetFramework="4.5" />
+      <httpRuntime targetFramework="4.5" />
+    </system.web>
+  <appSettings>
+    <add key="appid" value="UW" />
+    <add key="conn" value="EAAAAHTnj5Lu5M00bVm628xtO9xFwIEyDHsQ+F2yVF8TDOb6T5Yl0JUd3onOVftXO4EwzsEfGjaaeOHuNYmGUJpKy+Pv4PmRQokYxsL/YEQgnfQCLP5n6boIG6ZUrqvHzS5Q+Eg8UWksjVqeYGsFeqScH3o=" />
+    <add key="enckey" value="01012015" />
+  </appSettings>
+  <applicationSettings>
+    <UWBOX.Properties.Settings>
+      <setting name="UWBOX_SSRS_ReportExecutionService" serializeAs="String">
+        <value>http://localhost:80/ReportServer/ReportExecution2005.asmx</value>
+      </setting>
+    </UWBOX.Properties.Settings>
+  </applicationSettings>
+</configuration>

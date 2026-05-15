@@ -1,0 +1,102 @@
+<script language="javascript">
+function numbersonly()
+{
+	if ((event.keyCode<48||event.keyCode>57) && (event.keyCode!=46))
+	{
+		return false;
+	} else
+	{
+		return true;
+	}	
+}
+
+function charsonly()
+{	
+	//A : 65; Z : 90; a:97; z:122; 0:48; 9:57; spasi : 32; - : 45
+	if ((event.keyCode>=65 && event.keyCode<=90) || (event.keyCode>=97 && event.keyCode<=122) || event.keyCode==32)
+	{
+		return true;
+	} else
+	{
+		return false;
+	}	
+}
+
+function digitsonly()
+{
+	if ((event.keyCode>47&&event.keyCode<58 ) || (event.keyCode == 44) || (event.keyCode == 45))
+	{
+		return true;
+	} else
+	{
+		return false;
+	}	
+}
+
+function digitsonly2()
+{
+	if ((event.keyCode>47&&event.keyCode<58 ) || (event.keyCode == 46 ))
+	{
+		return true;
+	} else
+	{
+		return false;
+	}	
+}
+
+function digitsonly3()
+{
+	if ((event.keyCode == 46 ) || (event.keyCode == 35) || (event.keyCode == 39))
+	{
+		return false;
+	} else
+	{
+		return true;
+	}	
+}
+
+function kutip_satu()
+{
+	if ((event.keyCode == 35) || (event.keyCode == 39))
+	{
+		return false;
+	} else
+	{
+		return true;
+	}	
+}
+
+
+</script>
+
+<script language="vbscript">
+function FormatCurrency(obj_curr)
+	SetLocale("in")
+	v_curr = obj_curr.value
+	v_curr = replace(v_curr, ".", "")
+	if isnumeric(v_curr) then
+		v_curr = formatnumber(v_curr, 2)
+	else
+		v_curr = 0
+	end if
+	obj_curr.value = v_curr
+end function
+
+function curr(str)
+    set obj = eval("document." & str)
+    nilai = obj.value
+    nilai = replace(nilai, ".", "")
+    nilai = replace(nilai, ",", "")
+    if not isnumeric(nilai) then
+	  obj.value = 0
+	else obj.value = formatnumber(nilai, 0)
+	  obj.value = replace(obj.value, ",", ".")
+	end if
+	curr = obj.value
+end function
+
+</script>
+
+
+
+
