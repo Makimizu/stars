@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <Description />
+  <DataSet Name="RPT_COMMISSION_SUMMARY">
+    <Query>
+      <DataSourceReference>AGR</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@CD">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+        </DataSetParameter>
+        <DataSetParameter Name="@PERIOD">
+          <ReadOnly>false</ReadOnly>
+          <Nullable>true</Nullable>
+          <OmitFromQuery>false</OmitFromQuery>
+          <rd:UserDefined>true</rd:UserDefined>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>exec RPT_COMMISSION_SUMMARY
+@CD,
+@PERIOD</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="COMM_AGENT">
+        <DataField>COMM_AGENT</DataField>
+        <rd:UserDefined>true</rd:UserDefined>
+      </Field>
+      <Field Name="COMM_AGENT_NAME">
+        <DataField>COMM_AGENT_NAME</DataField>
+        <rd:UserDefined>true</rd:UserDefined>
+      </Field>
+      <Field Name="COMM_TYPE">
+        <DataField>COMM_TYPE</DataField>
+        <rd:UserDefined>true</rd:UserDefined>
+      </Field>
+      <Field Name="CD_CODE">
+        <DataField>CD_CODE</DataField>
+        <rd:UserDefined>true</rd:UserDefined>
+      </Field>
+      <Field Name="ORDERRPT">
+        <DataField>ORDERRPT</DataField>
+        <rd:UserDefined>true</rd:UserDefined>
+      </Field>
+      <Field Name="DEBET_AMT">
+        <DataField>DEBET_AMT</DataField>
+        <rd:UserDefined>true</rd:UserDefined>
+      </Field>
+      <Field Name="CREDIT_AMT">
+        <DataField>CREDIT_AMT</DataField>
+        <rd:UserDefined>true</rd:UserDefined>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

@@ -1,0 +1,55 @@
+USE [MARKETING]
+GO
+
+/****** Object:  View [dbo].[V_PERIOD_TAX_PPH21]    Script Date: 7/29/2021 7:56:17 PM ******/
+--SET ANSI_NULLS ON
+--GO
+
+--SET QUOTED_IDENTIFIER ON
+--GO
+
+
+--ALTER VIEW [dbo].[V_PERIOD_TAX_PPH21]
+--AS
+
+select
+
+a.CD,
+a.AGENT_CODE,
+a.YEAR,
+a.MONTH,
+a.SEQ,
+a.MARITAL_STATUS,
+a.REMUN_TYPE,
+MONTHLY_PTKP		= a.MONTHLY_PTKP * a.MONTH,
+TAX_NO				= isnull(c.VAL, ''),
+TAX_TYPE			= a.TAX_TYPE,
+AMOUNT				= a.AMOUNT,
+AMOUNT_PCT			= a.AMOUNT_PCT,
+AMOUNT_PCT_ACC		= SUM(b.AMOUNT_PCT),
+AMOUNT_PKP			= SUM(b.AMOUNT_PCT) - (a.MONTHLY_PTKP * a.MONTH) 
+
+from		V_PERIOD_DETAIL_SEQ a
+inner join	V_PERIOD_DETAIL_SEQ b on a.AGENT_CODE = b.AGENT_CODE and a.YEAR = b.YEAR and (a.MONTH * 10) + a.SEQ >= (b.MONTH * 10) + b.SEQ 
+left join	M_AGENT_OTHER_INFO c on a.AGENT_CODE = c.AGENT_CODE and c.FIELD_CODE = 'AGN09'
+
+where
+a.TAX_TYPE = 'PPH21'
+and a.AGENT_CODE = '001500012'
+group by
+a.CD,
+a.AGENT_CODE,
+a.YEAR,
+a.MONTH,
+a.SEQ,
+a.AMOUNT,
+a.AMOUNT_PCT,
+a.MARITAL_STATUS,
+a.REMUN_TYPE,
+a.MONTHLY_PTKP,
+a.TAX_TYPE,
+isnull(c.VAL, '')
+
+
+
+

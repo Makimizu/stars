@@ -1,0 +1,52 @@
+﻿.nav-tabs {
+    padding-bottom: 10px;
+    /*font-family: Verdana;
+    font-size: 9pt;*/
+    border: 0;
+}
+
+    .nav-tabs > li a {
+        margin-right: 2px;
+        background-color: silver;
+        color: grey;
+        padding: 10px;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:focus {
+        background-color: grey;
+        color: white;
+        border: 1px outset silver;
+        border-bottom: 0;
+    }
+
+    .nav-tabs > li.active > a:hover {
+        background-color: grey;
+        color: black;
+        border: 1px outset silver;
+        border-bottom: 0;
+    }
+
+    .nav-tabs > li > a:hover {
+        background-color: gainsboro !important;
+        border: 1px outset silver;
+        border-bottom: 0;
+        color: black;
+    }
+
+.tab-pane {
+    /*font-family: Verdana;
+    font-size: 9pt;*/
+    margin-top: 7px;
+    /*border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border: outset 1px silver;*/
+    width: 100%;
+    padding: 0px;
+}
+
+.tab-content > .active {
+    display: block;
+}
